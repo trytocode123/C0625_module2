@@ -191,7 +191,9 @@ public class Bai3 {
                 break;
         }
 
-        if (tens < 10) {
+        if ((input % 100) == 0) {
+            str += "";
+        } else if (tens < 10 && tens > 0) {
             str = str + " and " + numberLower10(tens);
         } else if (tens < 20) {
             str = str + " and " + numberHigherOrEqual10(tens);
@@ -201,6 +203,7 @@ public class Bai3 {
             str += numberHigherOrEqual10(tens);
         }
         return str;
+
     }
 
     public static void main(String[] args) {
