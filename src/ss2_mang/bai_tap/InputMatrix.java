@@ -12,17 +12,16 @@ public class InputMatrix {
             size = Integer.parseInt(sc.nextLine());
         } while (size <= 0);
 
-        arr = new int [size][];
+        arr = new int[size][];
 
         for (int i = 0; i < arr.length; i++) {
+            System.out.println("Enter length of array " + (i + 1));
             int n = Integer.parseInt(sc.nextLine());
-
-            arr[i] = new int [n];
-            System.out.println("Enter the array at " + (i + 1));
-            for (int j = 0; j < arr[i].length; j++) {
+            arr[i] = new int[n];
+            for (int j = 0; j < n; j++) {
+                System.out.println("Enter the number at " + (j + 1));
                 arr[i][j] = Integer.parseInt(sc.nextLine());
             }
-
         }
         return arr;
     }

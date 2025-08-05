@@ -3,14 +3,23 @@ package ss2_mang.bai_tap;
 import java.util.Arrays;
 
 public class Bai4 {
-    public static void main(String[] args) {
-        String result = "";
-        int[][] input = InputMatrix.inputMatrix();
-        for (int i = 0; i < input.length; i++) {
-            for (int j = 0; j < input[i].length; j++) {
-                result = Arrays.toString(input[i]);
+
+    public static int findMaxMatrix(int [][] input) {
+        int max = input[0][0];
+        for (int[] ints : input) {
+            for (int anInt : ints) {
+                if (anInt > max) {
+                    max = anInt;
+                }
             }
         }
-        System.out.println(result);
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int [][] input = InputMatrix.inputMatrix();
+        System.out.println("Array has been created" + Arrays.deepToString(input));
+        System.out.println("Max is " + findMaxMatrix(input));
+
     }
 }

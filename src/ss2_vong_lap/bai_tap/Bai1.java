@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Bai1 {
 
-    final static int RECTANGEL = 1;
-    final static int TRIAGLE_BOTTOM_LEFT = 2;
-    final static int TRIAGLE_TOP_LEFT = 3;
-    final static int ISOSCELES_TRIANGEL = 4;
 
     public static void displayShape() {
+        final int RECTANGEL = 1;
+        final int TRIAGLE_BOTTOM_LEFT = 2;
+        final int TRIAGLE_TOP_LEFT = 3;
+        final int ISOSCELES_TRIANGEL = 4;
         System.out.println("Enter option below\n 1. Rectangel\n 2. Triagle bottom left\n 3. Triangle bottom top\n 4. Isosceles triangle");
         Scanner sc = new Scanner(System.in);
         int option = Integer.parseInt(sc.nextLine());
