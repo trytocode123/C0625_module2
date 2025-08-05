@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class InputMatrix {
     public static int[][] inputMatrix() {
         int[][] arrMatrix;
-        System.out.println("Enter length of array");
         Scanner sc = new Scanner(System.in);
         int size;
         do {
+            System.out.println("Enter length of array");
             size = Integer.parseInt(sc.nextLine());
         } while (size <= 0);
 

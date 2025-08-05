@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Input {
     public static int[] input() {
         int[] arr;
-        System.out.println("Enter length of array");
         Scanner sc = new Scanner(System.in);
         int size;
         do {
+            System.out.println("Enter length of array");
             size = Integer.parseInt(sc.nextLine());
         } while (size <= 0);
 
