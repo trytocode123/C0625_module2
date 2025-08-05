@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InputMatrix {
     public static int[][] inputMatrix() {
-        int[][] arr;
+        int[][] arrMatrix;
         System.out.println("Enter length of array");
         Scanner sc = new Scanner(System.in);
         int size;
@@ -12,17 +12,17 @@ public class InputMatrix {
             size = Integer.parseInt(sc.nextLine());
         } while (size <= 0);
 
-        arr = new int[size][];
+        arrMatrix = new int[size][];
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arrMatrix.length; i++) {
             System.out.println("Enter length of array " + (i + 1));
             int n = Integer.parseInt(sc.nextLine());
-            arr[i] = new int[n];
+            arrMatrix[i] = new int[n];
             for (int j = 0; j < n; j++) {
                 System.out.println("Enter the number at " + (j + 1));
-                arr[i][j] = Integer.parseInt(sc.nextLine());
+                arrMatrix[i][j] = Integer.parseInt(sc.nextLine());
             }
         }
-        return arr;
+        return arrMatrix;
     }
 }

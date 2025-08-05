@@ -3,13 +3,13 @@ package ss2_mang.bai_tap;
 import java.util.Arrays;
 
 public class Bai3 {
-    public static int[] concatArray(int[] input1, int[] input2) {
-        int[] output = new int[input1.length + input2.length];
-        for (int i = 0; i < input1.length; i++) {
-            output[i] = input1[i];
+    public static int[] concatArray(int[] array1, int[] array2) {
+        int[] output = new int[array1.length + array2.length];
+        for (int i = 0; i < array1.length; i++) {
+            output[i] = array1[i];
         }
-        for (int i = 0; i < input2.length; i++) {
-            output[i + output.length - input2.length] = input2[i];
+        for (int i = 0; i < array2.length; i++) {
+            output[i + output.length - array2.length] = array2[i];
         }
         return output;
     }

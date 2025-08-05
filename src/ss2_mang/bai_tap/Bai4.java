@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Bai4 {
 
-    public static int findMaxMatrix(int [][] input) {
-        int max = input[0][0];
-        for (int[] ints : input) {
+    public static int findMaxMatrix(int [][] array) {
+        int max = array[0][0];
+        for (int[] ints : array) {
             for (int anInt : ints) {
                 if (anInt > max) {
                     max = anInt;

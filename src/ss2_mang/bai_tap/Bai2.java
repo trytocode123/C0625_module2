@@ -4,19 +4,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bai2 {
-    public static int[] add(int[] input) {
+    public static int[] add(int[] array) {
         System.out.println("Enter the number need to be add");
         Scanner sc = new Scanner(System.in);
         int numAdd = Integer.parseInt(sc.nextLine());
         System.out.println("Enter the position need to be added");
         int positionAdd = Integer.parseInt(sc.nextLine());
-        if (positionAdd > -1 || positionAdd < input.length - 1) {
-            for (int i = input.length - 1; i >= positionAdd; i--) {
-                input[i] = input[i - 1];
+        if (positionAdd > -1 || positionAdd < array.length - 1) {
+            for (int i = array.length - 1; i >= positionAdd; i--) {
+                array[i] = array[i - 1];
             }
-            input[positionAdd] = numAdd;
+            array[positionAdd] = numAdd;
         }
-        return input;
+        return array;
     }
 
     public static void main(String[] args) {
