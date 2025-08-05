@@ -73,12 +73,15 @@ public class Bai1 {
     }
 
     public static void isoscelesTriangle() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 5; j > i; j--) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of column: ");
+        int column = Integer.parseInt(sc.nextLine());
+        for (int i = 0; i < column; i++) {
+            for (int j = column; j > i; j--) {
                 System.out.print(" ");
             }
             for (int j = 0; j < i * 2 + 1; j++) {
-                System.out.print("* ");
+                System.out.print("*");
             }
             System.out.println();
         }
