@@ -16,7 +16,6 @@ public class Bai2 {
                 count++;
             }
             num++;
-
         } while (count < n);
 
     }

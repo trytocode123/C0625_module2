@@ -22,6 +22,6 @@ public class Bai2 {
     public static void main(String[] args) {
         int[] input = Input.input();
         System.out.println("Array has been created " + Arrays.toString(input));
-        System.out.println(Arrays.toString(add(input)));
+        System.out.println("Array after adding " + Arrays.toString(add(input)));
     }
 }

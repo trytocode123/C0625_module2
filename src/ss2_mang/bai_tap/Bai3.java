@@ -17,6 +17,8 @@ public class Bai3 {
     public static void main(String[] args) {
         int[] input1 = Input.input();
         int[] input2 = Input.input();
-        System.out.println("Array has been created " + Arrays.toString(concatArray(input1, input2)));
+        System.out.println("Array 1 has been created " + Arrays.toString(input1));
+        System.out.println("Array 2 has been created " + Arrays.toString(input2));
+        System.out.println("Array after concat " + Arrays.toString(concatArray(input1, input2)));
     }
 }
