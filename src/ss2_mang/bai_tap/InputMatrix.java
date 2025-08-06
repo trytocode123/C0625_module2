@@ -15,14 +15,19 @@ public class InputMatrix {
         arrMatrix = new int[size][];
 
         for (int i = 0; i < arrMatrix.length; i++) {
-            System.out.println("Enter length of array " + (i + 1));
-            int n = Integer.parseInt(sc.nextLine());
-            arrMatrix[i] = new int[n];
-            for (int j = 0; j < n; j++) {
+            int size2;
+            do {
+                System.out.println("Enter length of array " + (i + 1));
+                size2 = Integer.parseInt(sc.nextLine());
+            } while (size2 < 1);
+            arrMatrix[i] = new int[size2];
+            for (int j = 0; j < arrMatrix[i].length; j++) {
                 System.out.println("Enter the number at " + (j + 1));
                 arrMatrix[i][j] = Integer.parseInt(sc.nextLine());
             }
         }
         return arrMatrix;
     }
+
+
 }
