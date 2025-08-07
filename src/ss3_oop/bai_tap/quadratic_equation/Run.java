@@ -1,8 +1,8 @@
-package ss3_oop.bai_tap;
+package ss3_oop.bai_tap.quadratic_equation;
 
 import java.util.Scanner;
 
-public class RunQuadraticEquation {
+public class Run {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number a");

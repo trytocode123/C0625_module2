@@ -1,6 +1,6 @@
-package ss3_oop.bai_tap;
+package ss3_oop.bai_tap.fan;
 
-public class RunFan {
+public class Run {
     public static void main(String[] args) {
         Fan fan1 = new Fan(true, 10);
         Fan fan2 = new Fan(false, 5);

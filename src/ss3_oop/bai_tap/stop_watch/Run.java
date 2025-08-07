@@ -1,6 +1,6 @@
-package ss3_oop.bai_tap;
+package ss3_oop.bai_tap.stop_watch;
 
-public class RunStopWatch {
+public class Run {
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();

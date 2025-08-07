@@ -1,4 +1,4 @@
-package ss3_oop.bai_tap;
+package ss3_oop.bai_tap.stop_watch;
 
 public class StopWatch {
 

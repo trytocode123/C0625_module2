@@ -1,4 +1,4 @@
-package ss3_oop.bai_tap;
+package ss3_oop.bai_tap.fan;
 
 public class Fan {
     final static int SLOW = 1;
