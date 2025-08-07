@@ -1,0 +1,23 @@
+package ss3_oop.bai_tap;
+
+public class StopWatch {
+
+    long startTime;
+    long endTime;
+
+    public StopWatch() {
+
+    }
+
+    public void start() {
+        this.startTime = System.currentTimeMillis();
+    }
+
+    public void stop() {
+        this.endTime = System.currentTimeMillis();
+    }
+
+    public long getElapsedTime() {
+        return this.endTime - this.startTime;
+    }
+}

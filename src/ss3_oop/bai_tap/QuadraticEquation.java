@@ -2,9 +2,13 @@ package ss3_oop.bai_tap;
 
 public class QuadraticEquation {
 
-    private int a, b, c;
+    private double a, b, c;
 
-    public QuadraticEquation(int a, int b, int c) {
+    public QuadraticEquation() {
+
+    }
+
+    public QuadraticEquation(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -22,28 +26,16 @@ public class QuadraticEquation {
         return this.c;
     }
 
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public void setC(int c) {
-        this.c = c;
-    }
-
     public double getDiscriminant() {
-        return 2 * this.getB() - 4 * this.getA() * this.getC();
+        return Math.pow(this.getB(), 2) - 4 * this.getA() * this.getC();
     }
 
     public double getRoot1() {
-        return (-this.getB() + Math.sqrt(Math.pow(this.getB(), 2) - 4 * this.getA() * this.getC()) / (2 * this.getA()));
+        return (-this.getB() + Math.sqrt(this.getDiscriminant()));
     }
 
     public double getRoot2() {
-        return (-this.getB() - Math.sqrt(Math.pow(this.getB(), 2) - 4 * this.getA() * this.getC()) / (2 * this.getA()));
+        return (-this.getB() - Math.sqrt(this.getDiscriminant()));
     }
 
     public double getRoot3() {
@@ -51,12 +43,14 @@ public class QuadraticEquation {
     }
 
     public String getResult() {
-        if (this.getDiscriminant() < 0) {
+        if (a == 0) {
+            return "Not quadratic";
+        } else if (this.getDiscriminant() < 0) {
             return "The equation has no roots";
         } else if (this.getDiscriminant() == 0) {
             return "" + this.getRoot3();
         } else {
-            return "x1 = " + this.getRoot1() + "\nx2 = " + this.getRoot2();
+            return "x1 = " + this.getRoot1() / 2 * this.getA() + "\nx2 = " + this.getRoot2() / 2 * this.getA();
         }
     }
 }
