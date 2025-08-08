@@ -51,8 +51,9 @@ public class ProductManager {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập id sản phẩm");
         int iD = Integer.parseInt(sc.nextLine());
+        boolean flag = false;
         for (int i = 0; i < productList.length; i++) {
-            if (productList[i] != null &&productList[i].getID() == iD) {
+            if (productList[i] != null && productList[i].getID() == iD) {
                 System.out.println("Nhập id sản phẩm");
                 iD = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập tên sản phẩm");
@@ -61,12 +62,13 @@ public class ProductManager {
                 int price = Integer.parseInt(sc.nextLine());
                 productList[i] = new Product(iD, price, name);
                 System.out.println("Cập nhật thành công");
+                flag = true;
                 break;
             }
-            else {
-                System.out.println("Không tồn tại sản phẩm");
-                break;
-            }
+        }
+
+        if (!flag) {
+            System.out.println("Không tồn tại sản phẩm");
         }
     }
 
