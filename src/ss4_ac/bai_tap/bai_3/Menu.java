@@ -42,8 +42,8 @@ public class Menu {
 
                 case UPDATE:
                     System.out.println("Đây là chức năng sửa sản phẩṃ");
-                    Product[] updateList = pm.getAll();
-                    for (int i = 0; i < updateList.length; i++) {
+                    pm.update();
+                    for (int i = 0; i < pm.getAll().length; i++) {
                         System.out.println(pm.getAll()[i]);
                     }
                     break;
