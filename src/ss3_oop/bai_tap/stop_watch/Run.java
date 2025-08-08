@@ -4,7 +4,7 @@ public class Run {
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        for (int i = 0; i < 100000000; i++) {
+        for (int i = 0; i < 1000000000; i++) {
             int x = i * i;
         }
         stopWatch.stop();
