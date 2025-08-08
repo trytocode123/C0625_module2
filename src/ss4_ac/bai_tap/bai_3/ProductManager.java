@@ -42,7 +42,7 @@ public class ProductManager {
                 System.out.println("Đã thêm thành công");
                 break;
             } else {
-                System.out.println("Đã đầy sản phẩm, không thể thêm");
+                System.out.println("Danh sách đã đầy, không thể thêm");
             }
         }
     }
@@ -93,9 +93,11 @@ public class ProductManager {
                     productList[j] = productList[j + 1];
                 }
                 newList = this.getAll();
+                if (newList.length > 1 && newList[newList.length - 1] == newList[newList.length - 2]) {
+                    newList[newList.length - 1] = null;
+                }
                 return newList;
             }
-
         }
         return null;
     }

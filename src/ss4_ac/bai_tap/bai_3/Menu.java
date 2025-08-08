@@ -20,7 +20,7 @@ public class Menu {
 
             switch (option) {
                 case DISPLAY:
-                    System.out.println("Đây là chức năng hiển thị");
+                    System.out.println("Đây là chức năng hiển thị danh sách sản phẩm");
                     Product[] list = pm.getAll();
                     for (Product product : list) {
                         System.out.println(product);
@@ -64,12 +64,14 @@ public class Menu {
                     if (deleteList == null) {
                         System.out.println("Không tồn tại sản phẩm");
                     } else {
+                        System.out.println("Xóa sản phẩm thành công");
                         for (Product product : deleteList) {
-                            System.out.println("Xóa sản phẩm thành công");
-                            System.out.println(product);
+                            if (product != null) {
+                                System.out.println(product);
+                            }
+
                         }
                     }
-
                     break;
 
                 default:
