@@ -17,11 +17,11 @@ public class Menu {
             Scanner sc = new Scanner(System.in);
             int option = Integer.parseInt(sc.nextLine());
             ProductManager pm = new ProductManager();
-
+            Product[] list = pm.getAll();
             switch (option) {
                 case DISPLAY:
                     System.out.println("Đây là chức năng hiển thị danh sách sản phẩm");
-                    Product[] list = pm.getAll();
+
                     for (Product product : list) {
                         System.out.println(product);
                     }
@@ -30,14 +30,27 @@ public class Menu {
                     System.out.println("Đây là chức năng thêm sản phẩṃ");
                     System.out.println("Nhập id sản phẩm");
                     int iD = Integer.parseInt(sc.nextLine());
-                    System.out.println("Nhập tên sản phẩm");
-                    String name = sc.nextLine();
-                    System.out.println("Nhập giá sản phẩm");
-                    int price = Integer.parseInt(sc.nextLine());
-                    pm.add(new Product(iD, price, name));
-                    for (int i = 0; i < pm.getAll().length; i++) {
-                        System.out.println(pm.getAll()[i]);
+                    boolean flagAdd = false;
+                    for (Product item : list) {
+                        if (item.getID() == iD) {
+                            System.out.println("Sản phẩm đã tồn tại");
+                            flagAdd = true;
+                            break;
+                        }
                     }
+                    if (!flagAdd) {
+                        System.out.println("Nhập id sản phẩm");
+                        iD = Integer.parseInt(sc.nextLine());
+                        System.out.println("Nhập tên sản phẩm");
+                        String name = sc.nextLine();
+                        System.out.println("Nhập giá sản phẩm");
+                        int price = Integer.parseInt(sc.nextLine());
+                        pm.add(new Product(iD, price, name));
+                        for (int i = 0; i < pm.getAll().length; i++) {
+                            System.out.println(pm.getAll()[i]);
+                        }
+                    }
+
                     break;
 
                 case UPDATE:
