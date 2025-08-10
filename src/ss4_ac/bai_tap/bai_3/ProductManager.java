@@ -3,7 +3,7 @@ package ss4_ac.bai_tap.bai_3;
 import java.util.Scanner;
 
 public class ProductManager {
-    private final static Product[] productList = new Product[100];
+    private final static Product[] productList = new Product[2];
 
     static {
         Product product1 = new Product(1, 22_000_000, "Iphone");
@@ -120,18 +120,18 @@ public class ProductManager {
     public void delete() {
         int position = positionItemAvailable();
         if (position != -1) {
-            Product[] newList;
+            Product[] listAfterDelete;
 
             for (int j = position; j < productList.length - 1; j++) {
                 productList[j] = productList[j + 1];
             }
-            newList = this.getAll();
-            if (newList.length > 1 && newList[newList.length - 1] == newList[newList.length - 2]) {
-                newList[newList.length - 1] = null;
-            }
-
+            listAfterDelete = this.getAll();
+            listAfterDelete[listAfterDelete.length - 1] = null;
             System.out.println("Xóa sản phẩm thành công");
-            for (Product product : newList) {
+            for (Product product : productList) {
+                if (product == null) {
+                    continue;
+                }
                 System.out.println(product);
             }
 
