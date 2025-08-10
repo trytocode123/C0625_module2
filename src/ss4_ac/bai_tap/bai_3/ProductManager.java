@@ -50,12 +50,12 @@ public class ProductManager {
     public void update() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập id sản phẩm");
-        int iD = Integer.parseInt(sc.nextLine());
+        int iDToFind = Integer.parseInt(sc.nextLine());
         boolean flag = false;
         for (int i = 0; i < productList.length; i++) {
-            if (productList[i] != null && productList[i].getID() == iD) {
+            if (productList[i] != null && productList[i].getID() == iDToFind) {
                 System.out.println("Nhập id sản phẩm");
-                iD = Integer.parseInt(sc.nextLine());
+                int iD = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập tên sản phẩm");
                 String name = sc.nextLine();
                 System.out.println("Nhập giá sản phẩm");
