@@ -1,13 +1,13 @@
-package ss6_inheritance_polymorphism.bai_tap.point2d_3d;
+package ss6_inheritance_polymorphism.bai_tap.point_movable_point;
 
-public class Point2D {
+public class Point {
     float x = 0.0f;
     float y = 0.0f;
 
-    public Point2D() {
+    public Point() {
     }
 
-    public Point2D(float x, float y) {
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -28,18 +28,15 @@ public class Point2D {
         this.y = y;
     }
 
-    public void setXY(float x, float y) {
-        this.x = x;
-        this.y = y;
-    }
-
     public float[] getXY() {
         return new float[]{x, y};
     }
 
     @Override
     public String toString() {
-        return
-                "x=" + x + ", y=" + y;
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

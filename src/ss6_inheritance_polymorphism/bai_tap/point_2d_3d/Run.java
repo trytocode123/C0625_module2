@@ -1,4 +1,4 @@
-package ss6_inheritance_polymorphism.bai_tap.point2d_3d;
+package ss6_inheritance_polymorphism.bai_tap.point_2d_3d;
 
 import java.util.Arrays;
 

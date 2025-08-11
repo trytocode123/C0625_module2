@@ -1,4 +1,4 @@
-package ss6_inheritance_polymorphism.bai_tap.point_movablepoint;
+package ss6_inheritance_polymorphism.bai_tap.point_movable_point;
 
 
 public class Run {
