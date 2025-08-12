@@ -3,7 +3,7 @@ package ss4_ac.bai_tap.bai_3;
 import java.util.Scanner;
 
 public class ProductManager {
-    private final static Product[] productList = new Product[2];
+    private final static Product[] productList = new Product[100];
 
     static {
         Product product1 = new Product(1, 22_000_000, "Iphone");
