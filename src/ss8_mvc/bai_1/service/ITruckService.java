@@ -9,9 +9,11 @@ public interface ITruckService {
 
     boolean add(Truck truck);
 
-    boolean update(String numberControlTruck);
+    boolean update(int i, Truck truck);
 
     boolean delete(String numberControlTruck);
 
     Truck find(String numberControlTruck);
+
+    int findTruckByNumberControl(String numberControl);
 }

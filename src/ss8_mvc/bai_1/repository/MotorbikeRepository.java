@@ -1,7 +1,6 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Motorbike;
-import ss8_mvc.bai_1.view.MotorbikeView;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -39,13 +38,9 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
     @Override
-    public boolean update(String numberControlMotorbike) {
-        if (findMotorByNumberControl(numberControlMotorbike) != -1) {
-            int i = findMotorByNumberControl(numberControlMotorbike);
-            motorList.set(i, MotorbikeView.inputForMotorBikeData());
-            return true;
-        }
-        return false;
+    public boolean update(int i, Motorbike motorbike) {
+        motorList.set(i, motorbike);
+        return true;
     }
 
     @Override
@@ -60,11 +55,20 @@ public class MotorbikeRepository implements IMotorbikeRepository {
 
     @Override
     public Motorbike find(String numberControlMotorbike) {
-        for (Motorbike motorbike : motorList){
-            if(Objects.equals(motorbike.getControlNumber(), numberControlMotorbike)) {
+        for (Motorbike motorbike : motorList) {
+            if (Objects.equals(motorbike.getControlNumber(), numberControlMotorbike)) {
                 return motorbike;
             }
         }
         return null;
+    }
+
+    public int findMotorbikeByNumberControl(String numberControl) {
+        for (int i = 0; i < motorList.size(); i++) {
+            if (Objects.equals(motorList.get(i).getControlNumber(), numberControl)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

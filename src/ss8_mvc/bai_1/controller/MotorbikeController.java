@@ -40,9 +40,12 @@ public class MotorbikeController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    boolean resultUpdate = this.motorbikeService.update(MotorbikeView.inputNumberControlMotorBike());
-                    if (resultUpdate) {
-                        System.out.println("Update motorbike succeed");
+                    int i = motorbikeService.findMotorbikeByNumberControl(MotorbikeView.inputNumberControlMotorBike());
+                    if (i != -1) {
+                        this.motorbikeService.update(i, MotorbikeView.inputForMotorBikeData());
+                        System.out.println("Update car succeed");
+                    } else {
+                        System.out.println("Update car fail");
                     }
                     break;
                 case DELETE:

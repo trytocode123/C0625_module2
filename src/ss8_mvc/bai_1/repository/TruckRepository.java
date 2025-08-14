@@ -23,7 +23,7 @@ public class TruckRepository implements ITruckRepository {
         return truckList;
     }
 
-    int findTruckByNumberControl(String numberControl) {
+   public int findTruckByNumberControl(String numberControl) {
         for (int i = 0; i < truckList.size(); i++) {
             if (Objects.equals(truckList.get(i).getControlNumber(), numberControl)) {
                 return i;
@@ -44,13 +44,11 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public boolean update(String numberControlTruck) {
-        if (findTruckByNumberControl(numberControlTruck) != -1) {
-            int i = findTruckByNumberControl(numberControlTruck);
-            truckList.set(i, TruckView.inputForTruckData());
+    public boolean update(int i, Truck truck) {
+
+            truckList.set(i, truck);
             return true;
-        }
-        return false;
+
     }
 
     @Override
@@ -72,4 +70,7 @@ public class TruckRepository implements ITruckRepository {
         }
         return null;
     }
+
+
+
 }

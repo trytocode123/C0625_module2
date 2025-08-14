@@ -19,8 +19,8 @@ public class MotorbikeService implements IMotorbikeService {
     }
 
     @Override
-    public boolean update(String numberControlMotorbike) {
-        return motorbikeRepository.update(numberControlMotorbike);
+    public boolean update(int i, Motorbike motorbike) {
+        return motorbikeRepository.update(i, motorbike);
     }
 
     @Override
@@ -31,5 +31,9 @@ public class MotorbikeService implements IMotorbikeService {
     @Override
     public Motorbike find(String numberControlMotorbike) {
         return motorbikeRepository.find(numberControlMotorbike);
+    }
+
+    public int findMotorbikeByNumberControl(String numberControl) {
+        return motorbikeRepository.findMotorbikeByNumberControl(numberControl);
     }
 }

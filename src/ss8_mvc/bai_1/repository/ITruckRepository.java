@@ -9,7 +9,7 @@ public interface ITruckRepository {
 
     boolean add(Truck car);
 
-    boolean update(String numberControlTruck);
+    boolean update(int i, Truck truck);
 
     boolean delete(String numberControlTruck);
 

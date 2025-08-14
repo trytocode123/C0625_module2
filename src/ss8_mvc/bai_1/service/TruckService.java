@@ -20,8 +20,8 @@ public class TruckService implements ITruckService {
     }
 
     @Override
-    public boolean update(String numberControlTruck) {
-        return truckRepository.update(numberControlTruck);
+    public boolean update(int i, Truck truck) {
+        return truckRepository.update(i, truck);
     }
 
     @Override
@@ -32,5 +32,9 @@ public class TruckService implements ITruckService {
     @Override
     public Truck find(String numberControlTruck) {
         return truckRepository.find(numberControlTruck);
+    }
+
+    public int findTruckByNumberControl(String numberControl) {
+        return truckRepository.findTruckByNumberControl(numberControl);
     }
 }

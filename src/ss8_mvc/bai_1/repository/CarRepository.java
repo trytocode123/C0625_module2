@@ -1,14 +1,11 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Car;
-import ss8_mvc.bai_1.view.CarView;
-
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class CarRepository implements ICarRepository {
-    static Scanner sc = new Scanner(System.in);
     private static final ArrayList<Car> carList = new ArrayList<>();
 
     static {
@@ -23,7 +20,7 @@ public class CarRepository implements ICarRepository {
         return carList;
     }
 
-    int findCarByNumberControl(String numberControl) {
+    public int findCarByNumberControl(String numberControl) {
         for (int i = 0; i < carList.size(); i++) {
             if (Objects.equals(carList.get(i).getControlNumber(), numberControl)) {
                 return i;
@@ -39,13 +36,9 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public boolean update(String numberControlCar) {
-        if (findCarByNumberControl(numberControlCar) != -1) {
-            int i = findCarByNumberControl(numberControlCar);
-            carList.set(i, CarView.inputForCarData());
+    public boolean update(int i, Car car) {
+            carList.set(i, car);
             return true;
-        }
-        return false;
     }
 
     @Override

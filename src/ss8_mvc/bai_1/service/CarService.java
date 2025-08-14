@@ -19,8 +19,8 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public boolean update(String numberControlCar) {
-        return carRepository.update(numberControlCar);
+    public boolean update(int i, Car car) {
+        return carRepository.update(i, car);
     }
 
     @Override
@@ -32,4 +32,9 @@ public class CarService implements ICarService {
     public Car find(String numberControlCar) {
         return carRepository.find(numberControlCar);
     }
+
+    public int findCarByNumberControl(String numberControl) {
+        return carRepository.findCarByNumberControl(numberControl);
+    }
+
 }

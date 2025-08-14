@@ -9,7 +9,7 @@ public interface IMotorbikeRepository {
 
     boolean add(Motorbike motorbike);
 
-    boolean update(String motorbikeControl);
+    boolean update(int i, Motorbike motorbike);
 
     boolean delete(String motorbikeControl);
 

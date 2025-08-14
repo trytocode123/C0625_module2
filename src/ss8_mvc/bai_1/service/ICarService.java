@@ -9,9 +9,11 @@ public interface ICarService {
 
     boolean add(Car car);
 
-    boolean update(String numberControlCar);
+    boolean update(int i, Car car);
 
     boolean delete(String numberControlCar);
 
     Car find(String numberControlCar);
+
+    public int findCarByNumberControl(String numberControl);
 }

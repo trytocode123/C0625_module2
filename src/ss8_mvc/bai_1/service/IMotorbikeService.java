@@ -9,9 +9,11 @@ public interface IMotorbikeService {
 
     boolean add(Motorbike car);
 
-    boolean update(String numberControlMotorbike);
+    boolean update(int i, Motorbike motorbike);
 
     boolean delete(String numberControlMotorbike);
 
     Motorbike find(String numberControlMotorbike);
+
+    public int findMotorbikeByNumberControl(String numberControl);
 }

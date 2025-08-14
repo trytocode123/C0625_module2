@@ -9,7 +9,7 @@ public interface ICarRepository {
 
     boolean add(Car car);
 
-    boolean update(String numberControl);
+    boolean update(int i, Car car);
 
     boolean delete(String numberControl);
 

@@ -41,9 +41,13 @@ public class TruckController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    boolean resultUpdate = this.truckService.update(TruckView.inputNumberControlTruck());
-                    if (resultUpdate) {
+                    int i = truckService.findTruckByNumberControl(TruckView.inputNumberControlTruck());
+
+                    if (i != -1) {
+                        this.truckService.update(i, TruckView.inputForTruckData());
                         System.out.println("Update truck succeed");
+                    } else {
+                        System.out.println("Update truck fail");
                     }
                     break;
                 case DELETE:

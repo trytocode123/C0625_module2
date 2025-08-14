@@ -41,9 +41,12 @@ public class CarController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    boolean resultUpdate = this.carService.update(CarView.inputNumberControlCar());
-                    if (resultUpdate) {
+                    int i = carService.findCarByNumberControl(CarView.inputNumberControlCar());
+                    if (i != -1) {
+                        this.carService.update(i, CarView.inputForCarData());
                         System.out.println("Update car succeed");
+                    } else {
+                        System.out.println("Update car fail");
                     }
                     break;
                 case DELETE:
@@ -51,6 +54,8 @@ public class CarController {
                     boolean resultDelete = this.carService.delete(CarView.inputNumberControlCar());
                     if (resultDelete) {
                         System.out.println("Delete car succeed");
+                    } else {
+                        System.out.println("Delete car fail");
                     }
                     break;
                 case FIND:
