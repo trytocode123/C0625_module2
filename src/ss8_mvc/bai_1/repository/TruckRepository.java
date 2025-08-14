@@ -5,10 +5,10 @@ import ss8_mvc.bai_1.view.TruckView;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class TruckRepository implements ITruckRepository {
-    static Scanner sc = new Scanner(System.in);
+
     private static final ArrayList<Truck> truckList = new ArrayList<>();
 
     static {
@@ -30,11 +30,6 @@ public class TruckRepository implements ITruckRepository {
             }
         }
         return -1;
-    }
-
-    static String inputNumberControlTruck() {
-        System.out.println("Enter number control");
-        return sc.nextLine();
     }
 
     @Override

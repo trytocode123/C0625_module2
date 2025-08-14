@@ -4,10 +4,9 @@ import ss8_mvc.bai_1.entity.Motorbike;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class MotorbikeRepository implements IMotorbikeRepository {
-    static Scanner sc = new Scanner(System.in);
     private static final ArrayList<Motorbike> motorList = new ArrayList<>();
 
     static {
