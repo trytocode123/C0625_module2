@@ -66,9 +66,9 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public Truck find(String numberControlMotorbike) {
+    public Truck find(String numberControlTruck) {
         for (Truck truck : truckList) {
-            if (Objects.equals(truck.getControlNumber(), numberControlMotorbike)) {
+            if (Objects.equals(truck.getControlNumber(), numberControlTruck)) {
                 return truck;
             }
         }

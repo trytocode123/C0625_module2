@@ -42,7 +42,6 @@ public class CarRepository implements ICarRepository {
 
     @Override
     public boolean update(String numberControlCar) {
-
         if (findCarByNumberControl(numberControlCar) != -1) {
             int i = findCarByNumberControl(numberControlCar);
             carList.set(i, CarView.inputForCarData());
@@ -53,7 +52,6 @@ public class CarRepository implements ICarRepository {
 
     @Override
     public boolean delete(String numberControlCar) {
-
         if (findCarByNumberControl(numberControlCar) != -1) {
             int i = findCarByNumberControl(numberControlCar);
             carList.remove(i);
