@@ -20,17 +20,17 @@ public class TruckService implements ITruckService {
     }
 
     @Override
-    public boolean update() {
-        return truckRepository.update();
+    public boolean update(String numberControlTruck) {
+        return truckRepository.update(numberControlTruck);
     }
 
     @Override
-    public boolean delete() {
-        return truckRepository.delete();
+    public boolean delete(String numberControlTruck) {
+        return truckRepository.delete(numberControlTruck);
     }
 
     @Override
-    public Truck find() {
-        return null;
+    public Truck find(String numberControlTruck) {
+        return truckRepository.find(numberControlTruck);
     }
 }

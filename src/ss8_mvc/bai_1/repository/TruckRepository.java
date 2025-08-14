@@ -1,5 +1,6 @@
 package ss8_mvc.bai_1.repository;
 
+import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.entity.Truck;
 import ss8_mvc.bai_1.view.TruckView;
 
@@ -45,10 +46,9 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public boolean update() {
-        String numberControl = inputNumberControlTruck();
-        if (findTruckByNumberControl(numberControl) != -1) {
-            int i = findTruckByNumberControl(numberControl);
+    public boolean update(String numberControlTruck) {
+        if (findTruckByNumberControl(numberControlTruck) != -1) {
+            int i = findTruckByNumberControl(numberControlTruck);
             truckList.set(i, TruckView.inputForTruckData());
             return true;
         }
@@ -56,10 +56,9 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public boolean delete() {
-        String numberControl = inputNumberControlTruck();
-        if (findTruckByNumberControl(numberControl) != -1) {
-            int i = findTruckByNumberControl(numberControl);
+    public boolean delete(String numberControlTruck) {
+        if (findTruckByNumberControl(numberControlTruck) != -1) {
+            int i = findTruckByNumberControl(numberControlTruck);
             truckList.remove(i);
             return true;
         }
@@ -67,7 +66,12 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public Truck find() {
+    public Truck find(String numberControlMotorbike) {
+        for (Truck truck : truckList) {
+            if (Objects.equals(truck.getControlNumber(), numberControlMotorbike)) {
+                return truck;
+            }
+        }
         return null;
     }
 }

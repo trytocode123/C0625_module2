@@ -29,4 +29,9 @@ public class CarView {
         String typeCar = sc.nextLine();
         return new Car(numberControl, nameManufacturer, yearManufacture, nameOwner, numbSeat, typeCar);
     }
+
+    public static String inputNumberControlCar() {
+        System.out.println("Enter number control");
+        return sc.nextLine();
+    }
 }

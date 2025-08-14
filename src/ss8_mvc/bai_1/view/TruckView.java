@@ -28,4 +28,9 @@ public class TruckView {
 
         return new Truck(numberControl, nameManufacturer, yearManufacture, nameOwner, payload);
     }
+
+    public static String inputNumberControlTruck() {
+        System.out.println("Enter number control");
+        return sc.nextLine();
+    }
 }

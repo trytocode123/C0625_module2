@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 public interface ITruckService {
     ArrayList<Truck> findAll();
+
     boolean add(Truck truck);
-    boolean update();
-    boolean delete();
-    Truck find();
+
+    boolean update(String numberControlTruck);
+
+    boolean delete(String numberControlTruck);
+
+    Truck find(String numberControlTruck);
 }

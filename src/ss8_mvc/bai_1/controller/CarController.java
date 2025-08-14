@@ -1,9 +1,11 @@
 package ss8_mvc.bai_1.controller;
 
 import ss8_mvc.bai_1.entity.Car;
+import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.service.CarService;
 import ss8_mvc.bai_1.service.ICarService;
 import ss8_mvc.bai_1.view.CarView;
+import ss8_mvc.bai_1.view.MotorbikeView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,19 +41,26 @@ public class CarController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    boolean resultUpdate = this.carService.update();
+                    boolean resultUpdate = this.carService.update(CarView.inputNumberControlCar());
                     if (resultUpdate) {
                         System.out.println("Update car succeed");
                     }
                     break;
                 case DELETE:
                     System.out.println("This is delete function");
-                    boolean resultDelete = this.carService.delete();
+                    boolean resultDelete = this.carService.delete(CarView.inputNumberControlCar());
                     if (resultDelete) {
                         System.out.println("Delete car succeed");
                     }
                     break;
                 case FIND:
+                    System.out.println("This is find function");
+                    Car carFind = carService.find(CarView.inputNumberControlCar());
+                    if (carFind != null) {
+                        System.out.println(carFind);
+                    } else {
+                        System.out.println("Can not find this motorbike");
+                    }
                     break;
                 default:
                     flag = false;

@@ -28,4 +28,9 @@ public class MotorbikeView {
 
         return new Motorbike(numberControl, nameManufacturer, yearManufacture, nameOwner, power);
     }
+
+    public static String inputNumberControlMotorBike() {
+        System.out.println("Enter number control");
+        return sc.nextLine();
+    }
 }

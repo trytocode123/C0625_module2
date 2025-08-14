@@ -33,11 +33,6 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
 
-    static String inputNumberControlMotorBike() {
-        System.out.println("Enter number control");
-        return sc.nextLine();
-    }
-
     @Override
     public boolean add(Motorbike motorbike) {
         motorList.add(motorbike);
@@ -45,10 +40,9 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
     @Override
-    public boolean update() {
-        String numberControl = inputNumberControlMotorBike();
-        if (findMotorByNumberControl(numberControl) != -1) {
-            int i = findMotorByNumberControl(numberControl);
+    public boolean update(String numberControlMotorbike) {
+        if (findMotorByNumberControl(numberControlMotorbike) != -1) {
+            int i = findMotorByNumberControl(numberControlMotorbike);
             motorList.set(i, MotorbikeView.inputForMotorBikeData());
             return true;
         }
@@ -56,10 +50,9 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
     @Override
-    public boolean delete() {
-        String numberControl = inputNumberControlMotorBike();
-        if (findMotorByNumberControl(numberControl) != -1) {
-            int i = findMotorByNumberControl(numberControl);
+    public boolean delete(String numberControlMotorbike) {
+        if (findMotorByNumberControl(numberControlMotorbike) != -1) {
+            int i = findMotorByNumberControl(numberControlMotorbike);
             motorList.remove(i);
             return true;
         }
@@ -67,7 +60,12 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
     @Override
-    public Motorbike find() {
+    public Motorbike find(String numberControlMotorbike) {
+        for (Motorbike motorbike : motorList){
+            if(Objects.equals(motorbike.getControlNumber(), numberControlMotorbike)) {
+                return motorbike;
+            }
+        }
         return null;
     }
 }

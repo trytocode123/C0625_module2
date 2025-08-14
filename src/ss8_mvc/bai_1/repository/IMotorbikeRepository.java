@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface IMotorbikeRepository {
     ArrayList<Motorbike> findAll();
     boolean add(Motorbike motorbike);
-    boolean update();
-    boolean delete();
-    Motorbike find();
+    boolean update(String motorbikeControl);
+    boolean delete(String motorbikeControl);
+    Motorbike find(String motorbikeControl);
 }

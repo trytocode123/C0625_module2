@@ -19,17 +19,17 @@ public class MotorbikeService implements IMotorbikeService {
     }
 
     @Override
-    public boolean update() {
-        return motorbikeRepository.update();
+    public boolean update(String numberControlMotorbike) {
+        return motorbikeRepository.update(numberControlMotorbike);
     }
 
     @Override
-    public boolean delete() {
-        return motorbikeRepository.delete();
+    public boolean delete(String numberControlMotorbike) {
+        return motorbikeRepository.delete(numberControlMotorbike);
     }
 
     @Override
-    public Motorbike find() {
-        return null;
+    public Motorbike find(String numberControlMotorbike) {
+        return motorbikeRepository.find(numberControlMotorbike);
     }
 }

@@ -19,17 +19,17 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public boolean update() {
-        return carRepository.update();
+    public boolean update(String numberControlCar) {
+        return carRepository.update(numberControlCar);
     }
 
     @Override
-    public boolean delete() {
-        return carRepository.delete();
+    public boolean delete(String numberControlCar) {
+        return carRepository.delete(numberControlCar);
     }
 
     @Override
-    public Car find() {
-        return null;
+    public Car find(String numberControlCar) {
+        return carRepository.find(numberControlCar);
     }
 }

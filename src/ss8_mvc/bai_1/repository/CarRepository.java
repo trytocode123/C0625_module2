@@ -1,6 +1,7 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Car;
+import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.view.CarView;
 
 import java.util.ArrayList;
@@ -33,11 +34,6 @@ public class CarRepository implements ICarRepository {
     }
 
 
-    static String inputNumberControlCar() {
-        System.out.println("Enter number control");
-        return sc.nextLine();
-    }
-
     @Override
     public boolean add(Car car) {
         carList.add(car);
@@ -45,10 +41,10 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public boolean update() {
-        String numberControl = inputNumberControlCar();
-        if (findCarByNumberControl(numberControl) != -1) {
-            int i = findCarByNumberControl(numberControl);
+    public boolean update(String numberControlCar) {
+
+        if (findCarByNumberControl(numberControlCar) != -1) {
+            int i = findCarByNumberControl(numberControlCar);
             carList.set(i, CarView.inputForCarData());
             return true;
         }
@@ -56,10 +52,10 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public boolean delete() {
-        String numberControl = inputNumberControlCar();
-        if (findCarByNumberControl(numberControl) != -1) {
-            int i = findCarByNumberControl(numberControl);
+    public boolean delete(String numberControlCar) {
+
+        if (findCarByNumberControl(numberControlCar) != -1) {
+            int i = findCarByNumberControl(numberControlCar);
             carList.remove(i);
             return true;
         }
@@ -67,7 +63,12 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public Car find() {
+    public Car find(String numberControlCar) {
+        for (Car car : carList) {
+            if (Objects.equals(car.getControlNumber(), numberControlCar)) {
+                return car;
+            }
+        }
         return null;
     }
 }

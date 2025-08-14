@@ -1,9 +1,11 @@
 package ss8_mvc.bai_1.controller;
 
+import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.entity.Truck;
 import ss8_mvc.bai_1.service.IMotorbikeService;
 import ss8_mvc.bai_1.service.ITruckService;
 import ss8_mvc.bai_1.service.TruckService;
+import ss8_mvc.bai_1.view.MotorbikeView;
 import ss8_mvc.bai_1.view.TruckView;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class TruckController {
         final int FIND = 5;
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
+
         while (flag) {
             System.out.println("----Manage motorbike----\n1. Display list of motorbike\n2. Add motorbike\n3. Update motorbike\n4. Delete motorbike\n5. Find motorbike\n6. Back to main menu");
             int option = Integer.parseInt(sc.nextLine());
@@ -38,19 +41,26 @@ public class TruckController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    boolean resultUpdate = this.truckService.update();
+                    boolean resultUpdate = this.truckService.update(TruckView.inputNumberControlTruck());
                     if (resultUpdate) {
                         System.out.println("Update truck succeed");
                     }
                     break;
                 case DELETE:
                     System.out.println("This is delete function");
-                    boolean resultDelete = this.truckService.delete();
+                    boolean resultDelete = this.truckService.delete(TruckView.inputNumberControlTruck());
                     if (resultDelete) {
                         System.out.println("Delete truck succeed");
                     }
                     break;
                 case FIND:
+                    System.out.println("This is find function");
+                    Truck truckFind = truckService.find(TruckView.inputNumberControlTruck());
+                    if (truckFind != null) {
+                        System.out.println(truckFind);
+                    } else {
+                        System.out.println("Can not find this motorbike");
+                    }
                     break;
                 default:
                     flag = false;

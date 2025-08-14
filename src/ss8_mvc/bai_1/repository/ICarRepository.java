@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 public interface ICarRepository {
     ArrayList<Car> findAll();
+
     boolean add(Car car);
-    boolean update();
-    boolean delete();
-    Car find();
+
+    boolean update(String numberControl);
+
+    boolean delete(String numberControl);
+
+    Car find(String numberControl);
 }
