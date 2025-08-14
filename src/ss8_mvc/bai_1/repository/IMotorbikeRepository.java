@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 public interface IMotorbikeRepository {
     ArrayList<Motorbike> findAll();
+
     boolean add(Motorbike motorbike);
+
     boolean update(String motorbikeControl);
+
     boolean delete(String motorbikeControl);
+
     Motorbike find(String motorbikeControl);
 }
