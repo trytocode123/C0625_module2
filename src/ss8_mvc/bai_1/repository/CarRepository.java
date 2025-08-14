@@ -1,7 +1,6 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Car;
-import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.view.CarView;
 
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ public class CarRepository implements ICarRepository {
         }
         return -1;
     }
-
 
     @Override
     public boolean add(Car car) {

@@ -1,6 +1,5 @@
 package ss8_mvc.bai_1.repository;
 
-import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.entity.Truck;
 import ss8_mvc.bai_1.view.TruckView;
 
@@ -32,7 +31,6 @@ public class TruckRepository implements ITruckRepository {
         }
         return -1;
     }
-
 
     static String inputNumberControlTruck() {
         System.out.println("Enter number control");
