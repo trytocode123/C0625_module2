@@ -1,11 +1,9 @@
 package ss8_mvc.bai_1.controller;
 
-import ss8_mvc.bai_1.entity.Motorbike;
+
 import ss8_mvc.bai_1.entity.Truck;
-import ss8_mvc.bai_1.service.IMotorbikeService;
 import ss8_mvc.bai_1.service.ITruckService;
 import ss8_mvc.bai_1.service.TruckService;
-import ss8_mvc.bai_1.view.MotorbikeView;
 import ss8_mvc.bai_1.view.TruckView;
 
 import java.util.ArrayList;
@@ -55,6 +53,8 @@ public class TruckController {
                     boolean resultDelete = this.truckService.delete(TruckView.inputNumberControlTruck());
                     if (resultDelete) {
                         System.out.println("Delete truck succeed");
+                    } else {
+                        System.out.println("Delete fail");
                     }
                     break;
                 case FIND:
@@ -63,7 +63,7 @@ public class TruckController {
                     if (truckFind != null) {
                         System.out.println(truckFind);
                     } else {
-                        System.out.println("Can not find this motorbike");
+                        System.out.println("Can not find this truck");
                     }
                     break;
                 default:

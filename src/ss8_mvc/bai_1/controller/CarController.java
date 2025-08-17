@@ -1,11 +1,10 @@
 package ss8_mvc.bai_1.controller;
 
 import ss8_mvc.bai_1.entity.Car;
-import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.service.CarService;
 import ss8_mvc.bai_1.service.ICarService;
 import ss8_mvc.bai_1.view.CarView;
-import ss8_mvc.bai_1.view.MotorbikeView;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -3,7 +3,6 @@ package ss8_mvc.bai_1.controller;
 import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.service.IMotorbikeService;
 import ss8_mvc.bai_1.service.MotorbikeService;
-import ss8_mvc.bai_1.view.CarView;
 import ss8_mvc.bai_1.view.MotorbikeView;
 
 import java.util.ArrayList;
@@ -43,9 +42,9 @@ public class MotorbikeController {
                     int i = motorbikeService.findMotorbikeByNumberControl(MotorbikeView.inputNumberControlMotorBike());
                     if (i != -1) {
                         this.motorbikeService.update(i, MotorbikeView.inputForMotorBikeData());
-                        System.out.println("Update car succeed");
+                        System.out.println("Update motorbike succeed");
                     } else {
-                        System.out.println("Update car fail");
+                        System.out.println("Update motorbike fail");
                     }
                     break;
                 case DELETE:
@@ -53,6 +52,8 @@ public class MotorbikeController {
                     boolean resultDelete = this.motorbikeService.delete(MotorbikeView.inputNumberControlMotorBike());
                     if (resultDelete) {
                         System.out.println("Delete motorbike succeed");
+                    } else {
+                        System.out.println("Delete fail");
                     }
                     break;
                 case FIND:
