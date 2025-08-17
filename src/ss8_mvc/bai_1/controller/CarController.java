@@ -62,13 +62,10 @@ public class CarController {
                     System.out.println("This is find function");
                     ArrayList<Car> carFindList = carService.find(CarView.inputNumberControlCar());
                     if (carFindList != null) {
-                        if (carFindList.size() == 1) {
-                            System.out.println("There is " + carFindList.size() + " result:\n" + carFindList.get(0).toString());
-                        } else {
-                            System.out.println("There are " + carFindList.size() + " results:");
-                            for (Car carFind : carFindList) {
-                                System.out.println(carFind);
-                            }
+                        System.out.println(carFindList.size() == 1 ? "There is " + carFindList.size() + " result:" : "There are " + carFindList.size() + " results:");
+                        for (Car carFind : carFindList) {
+                            System.out.println(carFind);
+
                         }
                     } else {
                         System.out.println("Can not find this car");

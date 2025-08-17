@@ -62,13 +62,11 @@ public class MotorbikeController {
                     System.out.println("This is find function");
                     ArrayList<Motorbike> motorbikeFindList = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
                     if (motorbikeFindList != null) {
-                        if (motorbikeFindList.size() == 1) {
-                            System.out.println("There is " + motorbikeFindList.size() + " result:\n " + motorbikeFindList.get(0).toString());
-                        } else {
-                            System.out.println("There are " + motorbikeFindList.size() + " results:");
-                            for (Motorbike motorbikeFind : motorbikeFindList) {
-                                System.out.println(motorbikeFind);
-                            }
+
+                        System.out.println(motorbikeFindList.size() == 1 ? "There is " + motorbikeFindList.size() + " result:" : "There are " + motorbikeFindList.size() + " results:");
+                        for (Motorbike motorbikeFind : motorbikeFindList) {
+                            System.out.println(motorbikeFind);
+
                         }
                     } else {
                         System.out.println("Can not find this motorbike");
