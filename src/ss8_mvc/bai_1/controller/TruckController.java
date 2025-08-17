@@ -65,7 +65,6 @@ public class TruckController {
                         System.out.println(truckFindList.size() == 1 ? "There is " + truckFindList.size() + " result:" : "There are " + truckFindList.size() + " results:");
                         for (Truck truckFind : truckFindList) {
                             System.out.println(truckFind);
-
                         }
                     } else {
                         System.out.println("Can not find this truck");

@@ -65,7 +65,6 @@ public class CarController {
                         System.out.println(carFindList.size() == 1 ? "There is " + carFindList.size() + " result:" : "There are " + carFindList.size() + " results:");
                         for (Car carFind : carFindList) {
                             System.out.println(carFind);
-
                         }
                     } else {
                         System.out.println("Can not find this car");
