@@ -22,7 +22,7 @@ public class TruckController {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("----Manage motorbike----\n1. Display list of motorbike\n2. Add motorbike\n3. Update motorbike\n4. Delete motorbike\n5. Find motorbike\n6. Back to main menu");
+            System.out.println("----Manage truck----\n1. Display list of truck\n2. Add truck\n3. Update truck\n4. Delete truck\n5. Find truck\n6. Back to main menu");
             int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DISPLAY:
