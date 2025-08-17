@@ -29,6 +29,19 @@ public class MotorbikeView {
         return new Motorbike(numberControl, nameManufacturer, yearManufacture, nameOwner, power);
     }
 
+    public static Motorbike inputForMotorBikeEditData(String numberControl) {
+        System.out.println("Enter name of manufacturer");
+        String nameManufacturer = sc.nextLine();
+        System.out.println("Enter year of manufacture");
+        int yearManufacture = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter name of owner");
+        String nameOwner = sc.nextLine();
+        System.out.println("Enter power");
+        double power = Double.parseDouble(sc.nextLine());
+
+        return new Motorbike(numberControl, nameManufacturer, yearManufacture, nameOwner, power);
+    }
+
     public static String inputNumberControlMotorBike() {
         System.out.println("Enter number control");
         return sc.nextLine();

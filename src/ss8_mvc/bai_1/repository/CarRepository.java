@@ -1,6 +1,7 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Car;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -37,9 +38,10 @@ public class CarRepository implements ICarRepository {
 
     @Override
     public boolean update(int i, Car car) {
-            carList.set(i, car);
-            return true;
+        carList.set(i, car);
+        return true;
     }
+
 
     @Override
     public boolean delete(String numberControlCar) {
@@ -52,11 +54,15 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public Car find(String numberControlCar) {
+    public ArrayList<Car> find(String numberControlCar) {
+        ArrayList<Car> carFindList = new ArrayList<>();
         for (Car car : carList) {
-            if (Objects.equals(car.getControlNumber(), numberControlCar)) {
-                return car;
+            if (car.getControlNumber().contains(numberControlCar)) {
+                carFindList.add(car);
             }
+        }
+        if (!carFindList.isEmpty()) {
+            return carFindList;
         }
         return null;
     }

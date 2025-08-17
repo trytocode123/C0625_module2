@@ -29,7 +29,7 @@ public class MotorbikeService implements IMotorbikeService {
     }
 
     @Override
-    public Motorbike find(String numberControlMotorbike) {
+    public ArrayList<Motorbike> find(String numberControlMotorbike) {
         return motorbikeRepository.find(numberControlMotorbike);
     }
 

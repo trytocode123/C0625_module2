@@ -13,5 +13,5 @@ public interface ITruckRepository {
 
     boolean delete(String numberControlTruck);
 
-    Truck find(String numberControlTruck);
+    ArrayList<Truck> find(String numberControlTruck);
 }

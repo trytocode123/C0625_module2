@@ -1,5 +1,6 @@
 package ss8_mvc.bai_1.controller;
 
+
 import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.service.IMotorbikeService;
 import ss8_mvc.bai_1.service.MotorbikeService;
@@ -39,9 +40,10 @@ public class MotorbikeController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    int i = motorbikeService.findMotorbikeByNumberControl(MotorbikeView.inputNumberControlMotorBike());
+                    String controlNumberToUpdate = MotorbikeView.inputNumberControlMotorBike();
+                    int i = motorbikeService.findMotorbikeByNumberControl(controlNumberToUpdate);
                     if (i != -1) {
-                        this.motorbikeService.update(i, MotorbikeView.inputForMotorBikeData());
+                        this.motorbikeService.update(i, MotorbikeView.inputForMotorBikeEditData(MotorbikeView.inputNumberControlMotorBike()));
                         System.out.println("Update motorbike succeed");
                     } else {
                         System.out.println("Update motorbike fail");
@@ -58,9 +60,16 @@ public class MotorbikeController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    Motorbike motorbikeFind = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
-                    if (motorbikeFind != null) {
-                        System.out.println(motorbikeFind);
+                    ArrayList<Motorbike> motorbikeFindList = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
+                    if (motorbikeFindList != null) {
+                        if (motorbikeFindList.size() == 1) {
+                            System.out.println("There is " + motorbikeFindList.size() + " result: " + motorbikeFindList.get(0).toString());
+                        } else {
+                            System.out.println("There are " + motorbikeFindList.size() + " results:");
+                            for (Motorbike motorbikeFind : motorbikeFindList) {
+                                System.out.println(motorbikeFind);
+                            }
+                        }
                     } else {
                         System.out.println("Can not find this motorbike");
                     }

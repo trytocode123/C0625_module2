@@ -1,6 +1,7 @@
 package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Motorbike;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -52,11 +53,15 @@ public class MotorbikeRepository implements IMotorbikeRepository {
     }
 
     @Override
-    public Motorbike find(String numberControlMotorbike) {
+    public ArrayList<Motorbike> find(String numberControlMotorbike) {
+        ArrayList<Motorbike> motorbikeFindList = new ArrayList<>();
         for (Motorbike motorbike : motorList) {
-            if (Objects.equals(motorbike.getControlNumber(), numberControlMotorbike)) {
-                return motorbike;
+            if (motorbike.getControlNumber().contains(numberControlMotorbike)) {
+                motorbikeFindList.add(motorbike);
             }
+        }
+        if (!motorbikeFindList.isEmpty()) {
+            return motorbikeFindList;
         }
         return null;
     }

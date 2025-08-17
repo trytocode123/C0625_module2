@@ -40,9 +40,10 @@ public class CarController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    int i = carService.findCarByNumberControl(CarView.inputNumberControlCar());
+                    String controlNumberToUpdate = CarView.inputNumberControlCar();
+                    int i = carService.findCarByNumberControl(controlNumberToUpdate);
                     if (i != -1) {
-                        this.carService.update(i, CarView.inputForCarData());
+                        this.carService.update(i, CarView.inputForCarEditData(controlNumberToUpdate));
                         System.out.println("Update car succeed");
                     } else {
                         System.out.println("Update car fail");
@@ -59,11 +60,18 @@ public class CarController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    Car carFind = carService.find(CarView.inputNumberControlCar());
-                    if (carFind != null) {
-                        System.out.println(carFind);
+                    ArrayList<Car> carFindList = carService.find(CarView.inputNumberControlCar());
+                    if (carFindList != null) {
+                        if (carFindList.size() == 1) {
+                            System.out.println("There is " + carFindList.size() + " result:\n" + carFindList.get(0).toString());
+                        } else {
+                            System.out.println("There are " + carFindList.size() + " results:");
+                            for (Car carFind : carFindList) {
+                                System.out.println(carFind);
+                            }
+                        }
                     } else {
-                        System.out.println("Can not find this motorbike");
+                        System.out.println("Can not find this car");
                     }
                     break;
                 default:

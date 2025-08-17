@@ -13,7 +13,7 @@ public interface IMotorbikeService {
 
     boolean delete(String numberControlMotorbike);
 
-    Motorbike find(String numberControlMotorbike);
+    ArrayList<Motorbike> find(String numberControlMotorbike);
 
     public int findMotorbikeByNumberControl(String numberControl);
 }

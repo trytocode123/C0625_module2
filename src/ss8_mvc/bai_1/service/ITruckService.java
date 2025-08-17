@@ -13,7 +13,7 @@ public interface ITruckService {
 
     boolean delete(String numberControlTruck);
 
-    Truck find(String numberControlTruck);
+    ArrayList<Truck> find(String numberControlTruck);
 
     int findTruckByNumberControl(String numberControl);
 }

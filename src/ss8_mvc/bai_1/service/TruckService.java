@@ -30,7 +30,7 @@ public class TruckService implements ITruckService {
     }
 
     @Override
-    public Truck find(String numberControlTruck) {
+    public ArrayList<Truck> find(String numberControlTruck) {
         return truckRepository.find(numberControlTruck);
     }
 

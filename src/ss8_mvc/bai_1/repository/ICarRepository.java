@@ -13,5 +13,5 @@ public interface ICarRepository {
 
     boolean delete(String numberControl);
 
-    Car find(String numberControl);
+    ArrayList<Car> find(String numberControl);
 }

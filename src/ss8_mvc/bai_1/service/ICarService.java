@@ -13,7 +13,7 @@ public interface ICarService {
 
     boolean delete(String numberControlCar);
 
-    Car find(String numberControlCar);
+    ArrayList<Car>  find(String numberControlCar);
 
     public int findCarByNumberControl(String numberControl);
 }

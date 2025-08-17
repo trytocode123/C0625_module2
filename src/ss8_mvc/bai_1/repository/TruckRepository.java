@@ -1,7 +1,7 @@
 package ss8_mvc.bai_1.repository;
 
+
 import ss8_mvc.bai_1.entity.Truck;
-import ss8_mvc.bai_1.view.TruckView;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class TruckRepository implements ITruckRepository {
         return truckList;
     }
 
-   public int findTruckByNumberControl(String numberControl) {
+    public int findTruckByNumberControl(String numberControl) {
         for (int i = 0; i < truckList.size(); i++) {
             if (Objects.equals(truckList.get(i).getControlNumber(), numberControl)) {
                 return i;
@@ -41,8 +41,8 @@ public class TruckRepository implements ITruckRepository {
     @Override
     public boolean update(int i, Truck truck) {
 
-            truckList.set(i, truck);
-            return true;
+        truckList.set(i, truck);
+        return true;
 
     }
 
@@ -57,15 +57,16 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public Truck find(String numberControlTruck) {
+    public ArrayList<Truck> find(String numberControlTruck) {
+        ArrayList<Truck> truckFindList = new ArrayList<>();
         for (Truck truck : truckList) {
-            if (Objects.equals(truck.getControlNumber(), numberControlTruck)) {
-                return truck;
+            if (truck.getControlNumber().contains(numberControlTruck)) {
+                truckFindList.add(truck);
             }
+        }
+        if (!truckFindList.isEmpty()) {
+            return truckFindList;
         }
         return null;
     }
-
-
-
 }

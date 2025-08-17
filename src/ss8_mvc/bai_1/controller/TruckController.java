@@ -39,10 +39,11 @@ public class TruckController {
                     break;
                 case UPDATE:
                     System.out.println("This is update function");
-                    int i = truckService.findTruckByNumberControl(TruckView.inputNumberControlTruck());
+                    String controlNumberToUpdate = TruckView.inputNumberControlTruck();
+                    int i = truckService.findTruckByNumberControl(controlNumberToUpdate);
 
                     if (i != -1) {
-                        this.truckService.update(i, TruckView.inputForTruckData());
+                        this.truckService.update(i, TruckView.inputForTruckEditData(controlNumberToUpdate));
                         System.out.println("Update truck succeed");
                     } else {
                         System.out.println("Update truck fail");
@@ -59,9 +60,16 @@ public class TruckController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    Truck truckFind = truckService.find(TruckView.inputNumberControlTruck());
-                    if (truckFind != null) {
-                        System.out.println(truckFind);
+                    ArrayList<Truck> truckFindList = truckService.find(TruckView.inputNumberControlTruck());
+                    if (truckFindList != null) {
+                        if (truckFindList.size() == 1) {
+                            System.out.println("There is " + truckFindList.size() + " result: " + truckFindList.get(0).toString());
+                        } else {
+                            System.out.println("There are " + truckFindList.size() + " results:");
+                            for (Truck truckFind : truckFindList) {
+                                System.out.println(truckFind);
+                            }
+                        }
                     } else {
                         System.out.println("Can not find this truck");
                     }

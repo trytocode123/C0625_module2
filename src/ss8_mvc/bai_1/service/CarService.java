@@ -29,7 +29,7 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public Car find(String numberControlCar) {
+    public ArrayList<Car> find(String numberControlCar) {
         return carRepository.find(numberControlCar);
     }
 

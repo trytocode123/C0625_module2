@@ -13,5 +13,5 @@ public interface IMotorbikeRepository {
 
     boolean delete(String motorbikeControl);
 
-    Motorbike find(String motorbikeControl);
+    ArrayList<Motorbike> find(String motorbikeControl);
 }
