@@ -63,7 +63,7 @@ public class TruckController {
                     ArrayList<Truck> truckFindList = truckService.find(TruckView.inputNumberControlTruck());
                     if (truckFindList != null) {
                         if (truckFindList.size() == 1) {
-                            System.out.println("There is " + truckFindList.size() + " result: " + truckFindList.get(0).toString());
+                            System.out.println("There is " + truckFindList.size() + " result:\n " + truckFindList.get(0).toString());
                         } else {
                             System.out.println("There are " + truckFindList.size() + " results:");
                             for (Truck truckFind : truckFindList) {

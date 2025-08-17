@@ -63,7 +63,7 @@ public class MotorbikeController {
                     ArrayList<Motorbike> motorbikeFindList = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
                     if (motorbikeFindList != null) {
                         if (motorbikeFindList.size() == 1) {
-                            System.out.println("There is " + motorbikeFindList.size() + " result: " + motorbikeFindList.get(0).toString());
+                            System.out.println("There is " + motorbikeFindList.size() + " result:\n " + motorbikeFindList.get(0).toString());
                         } else {
                             System.out.println("There are " + motorbikeFindList.size() + " results:");
                             for (Motorbike motorbikeFind : motorbikeFindList) {
