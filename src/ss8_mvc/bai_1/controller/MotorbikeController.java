@@ -21,7 +21,6 @@ public class MotorbikeController {
         Scanner sc = new Scanner(System.in);
 
         boolean flag = true;
-        MotorbikeService motorbikeServiceService = new MotorbikeService();
         while (flag) {
             System.out.println("----Manage motorbike----\n1. Display list of motorbike\n2. Add motorbike\n3. Update motorbike\n4. Delete motorbike\n5. Find motorbike\n6. Back to main menu");
             int option = Integer.parseInt(sc.nextLine());
