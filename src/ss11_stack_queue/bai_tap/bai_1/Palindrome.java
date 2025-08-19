@@ -1,9 +1,6 @@
 package ss11_stack_queue.bai_tap.bai_1;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Palindrome {
     public static void main(String[] args) {
