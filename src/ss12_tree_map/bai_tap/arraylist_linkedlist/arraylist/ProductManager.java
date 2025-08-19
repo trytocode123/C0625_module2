@@ -1,7 +1,6 @@
-package ss12_tree_map.bai_tap.linkedlist;
+package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist;
 
-
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class ProductManager {
         mainMenu();
     }
 
-    public static int isValidById(List<Product> list) {
+    public static int isValid(List<Product> list) {
         System.out.print("Enter id:");
         int iD = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < list.size(); i++) {
@@ -23,19 +22,8 @@ public class ProductManager {
         return -1;
     }
 
-    public static Product isValidByName(List<Product> list) {
-        System.out.print("Enter name:");
-        String name = sc.nextLine();
-        for (Product product : list) {
-            if (product.getName().equals(name)) {
-                return product;
-            }
-        }
-        return null;
-    }
-
     public static void mainMenu() {
-        List<Product> listProduct = new LinkedList<>();
+        List<Product> listProduct = new ArrayList<>();
 
         final int ADD = 1;
         final int UPDATE = 2;
@@ -44,8 +32,8 @@ public class ProductManager {
         final int FIND = 5;
         final int SORT_INCREASE = 6;
         final int SORT_DECREASE = 7;
-        listProduct.add(new Product(1, "Asus", 21000000));
-        listProduct.add(new Product(2, "Dell", 20000000));
+        listProduct.add(new Product(1, "Asus", 12000000));
+        listProduct.add(new Product(2, "Dell", 10000000));
         listProduct.add(new Product(3, "HP", 25000000));
         listProduct.add(new Product(4, "Lenovo", 30000000));
 
@@ -71,7 +59,7 @@ public class ProductManager {
 
                 case UPDATE:
                     System.out.println("This is update product function");
-                    int iUpdate = isValidById(listProduct);
+                    int iUpdate = isValid(listProduct);
                     if (iUpdate != -1) {
                         System.out.print("Enter name: ");
                         String nameUpdate = sc.nextLine();
@@ -85,7 +73,7 @@ public class ProductManager {
                     break;
                 case DELETE:
                     System.out.println("This is delete product function");
-                    int iDel = isValidById(listProduct);
+                    int iDel = isValid(listProduct);
                     if (iDel != -1) {
                         listProduct.remove(iDel);
                         System.out.println("Delete success");
@@ -102,9 +90,9 @@ public class ProductManager {
                     break;
                 case FIND:
                     System.out.println("This is find product function");
-                    Product product = isValidByName(listProduct);
-                    if (product != null) {
-                        System.out.println(product);
+                    int iFind = isValid(listProduct);
+                    if (iFind != -1) {
+                        System.out.println(listProduct.get(iFind));
                     } else {
                         System.out.println("Not found");
                     }
@@ -112,18 +100,19 @@ public class ProductManager {
                 case SORT_INCREASE:
                     System.out.println("This is sort increase by price");
                     listProduct.sort(new SortIncrease());
-                    for (Product productIn : listProduct) {
-                        System.out.println(productIn);
+                    for (Product product : listProduct) {
+                        System.out.println(product);
                     }
                     break;
 
                 case SORT_DECREASE:
                     System.out.println("This is sort decrease by price");
                     listProduct.sort(new SortDecrease());
-                    for (Product productDe : listProduct) {
-                        System.out.println(productDe);
+                    for (Product product : listProduct) {
+                        System.out.println(product);
                     }
                     break;
+
                 default:
                     flag = false;
             }

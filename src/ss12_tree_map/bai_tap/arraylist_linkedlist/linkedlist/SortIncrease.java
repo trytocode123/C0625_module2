@@ -1,4 +1,4 @@
-package ss12_tree_map.bai_tap.arraylist;
+package ss12_tree_map.bai_tap.arraylist_linkedlist.linkedlist;
 
 import java.util.Comparator;
 
