@@ -61,7 +61,7 @@ public class ProductManager {
                     System.out.println("This is add product function");
                     System.out.print("Enter id: ");
                     int iD = Integer.parseInt(sc.nextLine());
-                    System.out.print("Enter name: ");
+                    System.out.println("Enter name: ");
                     String name = sc.nextLine();
                     System.out.println("Enter price");
                     int price = Integer.parseInt(sc.nextLine());

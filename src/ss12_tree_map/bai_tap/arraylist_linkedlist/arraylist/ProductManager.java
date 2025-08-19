@@ -12,7 +12,7 @@ public class ProductManager {
     }
 
     public static int isValid(List<Product> list) {
-        System.out.print("Enter id:");
+        System.out.print("Enter id: ");
         int iD = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getID() == iD) {
