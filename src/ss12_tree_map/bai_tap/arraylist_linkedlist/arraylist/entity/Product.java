@@ -1,6 +1,6 @@
-package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist;
+package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.entity;
 
-public class Product{
+public class Product {
     private int iD;
     private String name;
     private int price;
@@ -46,7 +46,4 @@ public class Product{
                 ", Price = " + price +
                 '}';
     }
-
-
-
 }
