@@ -47,4 +47,6 @@ public abstract class Vehicle {
     public void setNameOwner(String nameOwner) {
         this.nameOwner = nameOwner;
     }
+
+    public abstract String getInfoToCSV();
 }

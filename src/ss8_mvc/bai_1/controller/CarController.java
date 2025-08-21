@@ -7,6 +7,7 @@ import ss8_mvc.bai_1.view.CarView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarController {
@@ -27,7 +28,7 @@ public class CarController {
             int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DISPLAY:
-                    ArrayList<Car> cars = this.carService.findAll();
+                    List<Car> cars = this.carService.findAll();
                     CarView.display(cars);
                     break;
                 case ADD:
@@ -60,10 +61,10 @@ public class CarController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    ArrayList<Car> carFindList = carService.find(CarView.inputNumberControlCar());
+                    List<String> carFindList = carService.find(CarView.inputNumberControlCar());
                     if (carFindList != null) {
                         System.out.println(carFindList.size() == 1 ? "There is " + carFindList.size() + " result:" : "There are " + carFindList.size() + " results:");
-                        for (Car carFind : carFindList) {
+                        for (String carFind : carFindList) {
                             System.out.println(carFind);
                         }
                     } else {

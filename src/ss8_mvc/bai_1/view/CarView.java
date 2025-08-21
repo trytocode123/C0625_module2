@@ -3,12 +3,13 @@ package ss8_mvc.bai_1.view;
 import ss8_mvc.bai_1.entity.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarView {
     private static Scanner sc = new Scanner(System.in);
 
-    public static void display(ArrayList<Car> cars) {
+    public static void display(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car);
         }

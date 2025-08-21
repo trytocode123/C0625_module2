@@ -6,6 +6,11 @@ public class Truck extends Vehicle {
     public Truck() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return "";
+    }
+
     public Truck(String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, double payload) {
         super(controlNumber, nameManufacturer, yearManufacture, nameOwner);
         this.payload = payload;

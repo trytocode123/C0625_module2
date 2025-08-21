@@ -4,12 +4,13 @@ import ss8_mvc.bai_1.entity.Car;
 import ss8_mvc.bai_1.repository.CarRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarService implements ICarService {
     CarRepository carRepository = new CarRepository();
 
     @Override
-    public ArrayList<Car> findAll() {
+    public List<Car> findAll() {
         return carRepository.findAll();
     }
 
@@ -29,7 +30,7 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public ArrayList<Car> find(String numberControlCar) {
+    public List<String> find(String numberControlCar) {
         return carRepository.find(numberControlCar);
     }
 

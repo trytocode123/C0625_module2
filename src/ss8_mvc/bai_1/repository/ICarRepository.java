@@ -3,9 +3,10 @@ package ss8_mvc.bai_1.repository;
 import ss8_mvc.bai_1.entity.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ICarRepository {
-    ArrayList<Car> findAll();
+    List<Car> findAll();
 
     boolean add(Car car);
 
@@ -13,5 +14,5 @@ public interface ICarRepository {
 
     boolean delete(String numberControl);
 
-    ArrayList<Car> find(String numberControl);
+    List<String> find(String numberControl);
 }
