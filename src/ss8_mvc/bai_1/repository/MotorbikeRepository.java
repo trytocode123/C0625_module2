@@ -1,77 +1,120 @@
 package ss8_mvc.bai_1.repository;
 
-import ss8_mvc.bai_1.entity.Motorbike;
 
+import ss8_mvc.bai_1.entity.Motorbike;
+import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
+
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
 
 
 public class MotorbikeRepository implements IMotorbikeRepository {
-    private static final ArrayList<Motorbike> motorList = new ArrayList<>();
 
-    static {
-        motorList.add(new Motorbike("43C-11231", "Honda", 2019, "Nguyen Van A", 125));
-        motorList.add(new Motorbike("75C-11212", "Honda", 2019, "Nguyen Van B", 125));
-        motorList.add(new Motorbike("74C-11345", "Honda", 2019, "Nguyen Van C", 125));
-        motorList.add(new Motorbike("92C-68678", "Honda", 2019, "Nguyen Van D", 125));
-    }
+    final static String pathFile = "src/ss8_mvc/bai_1/data/motorbike.csv";
+
 
     @Override
-    public ArrayList<Motorbike> findAll() {
-        return motorList;
+    public List<Motorbike> findAll() {
+        List<Motorbike> motorbikeList = new ArrayList<>();
+        try {
+            List<String> stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            String[] array = null;
+            for (String line : stringList) {
+                array = line.split(",");
+                //    String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, double power
+                Motorbike motorbike = new Motorbike(array[0], array[1], Integer.parseInt(array[2]), array[3], Double.parseDouble(array[4]));
+                motorbikeList.add(motorbike);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
+        }
+        return motorbikeList;
     }
 
-    int findMotorByNumberControl(String numberControl) {
-        for (int i = 0; i < motorList.size(); i++) {
-            if (Objects.equals(motorList.get(i).getControlNumber(), numberControl)) {
-                return i;
+    public int findMotorbikeByNumberControl(String numberControl) {
+        List<String> stringList = null;
+        try {
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            String[] array = null;
+            for (int i = 0; i < stringList.size(); i++) {
+                array = stringList.get(i).split(",");
+                for (String str : array) {
+                    if (str.equals(numberControl)) {
+                        return i;
+                    }
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return -1;
     }
 
     @Override
     public boolean add(Motorbike motorbike) {
-        motorList.add(motorbike);
-        return true;
+        List<String> stringList = new ArrayList<>();
+        try {
+            stringList.add(motorbike.getInfoToCSV());
+            ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, true);
+            return true;
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
+        }
+
+        return false;
     }
 
     @Override
     public boolean update(int i, Motorbike motorbike) {
-        motorList.set(i, motorbike);
+        List<String> stringList = null;
+        try {
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            stringList.set(i, motorbike.getInfoToCSV());
+            ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, false);
+        } catch (IOException e) {
+            System.out.println("Error reading and writing");
+        }
+
         return true;
     }
 
     @Override
     public boolean delete(String numberControlMotorbike) {
-        if (findMotorByNumberControl(numberControlMotorbike) != -1) {
-            int i = findMotorByNumberControl(numberControlMotorbike);
-            motorList.remove(i);
-            return true;
+        int index = findMotorbikeByNumberControl(numberControlMotorbike);
+        List<String> stringList = null;
+        try {
+            if (index != -1) {
+                stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+                stringList.remove(index);
+                ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, false);
+                return true;
+            }
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return false;
     }
 
     @Override
-    public ArrayList<Motorbike> find(String numberControlMotorbike) {
-        ArrayList<Motorbike> motorbikeFindList = new ArrayList<>();
-        for (Motorbike motorbike : motorList) {
-            if (motorbike.getControlNumber().contains(numberControlMotorbike)) {
-                motorbikeFindList.add(motorbike);
+    public List<Motorbike> find(String numberControlMotorbike) {
+        List<String> stringList = null;
+        List<Motorbike> motorbkeFindList = new ArrayList<>();
+        try {
+            String[] array = null;
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            for (String line : stringList) {
+                array = line.split(",");
+                if (array[0].contains(numberControlMotorbike)) {
+                    motorbkeFindList.add(new Motorbike(array[0], array[1], Integer.parseInt(array[2]), array[3], Double.parseDouble(array[4])));
+                }
             }
-        }
-        if (!motorbikeFindList.isEmpty()) {
-            return motorbikeFindList;
+            return motorbkeFindList;
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return null;
     }
-
-    public int findMotorbikeByNumberControl(String numberControl) {
-        for (int i = 0; i < motorList.size(); i++) {
-            if (Objects.equals(motorList.get(i).getControlNumber(), numberControl)) {
-                return i;
-            }
-        }
-        return -1;
-    }
 }
+

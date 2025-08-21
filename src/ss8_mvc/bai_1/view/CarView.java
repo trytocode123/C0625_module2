@@ -2,7 +2,7 @@ package ss8_mvc.bai_1.view;
 
 import ss8_mvc.bai_1.entity.Car;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 

@@ -5,12 +5,13 @@ import ss8_mvc.bai_1.entity.Truck;
 import ss8_mvc.bai_1.repository.TruckRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TruckService implements ITruckService {
     TruckRepository truckRepository = new TruckRepository();
 
     @Override
-    public ArrayList<Truck> findAll() {
+    public List<Truck> findAll() {
         return truckRepository.findAll();
     }
 
@@ -30,7 +31,7 @@ public class TruckService implements ITruckService {
     }
 
     @Override
-    public ArrayList<Truck> find(String numberControlTruck) {
+    public List<Truck> find(String numberControlTruck) {
         return truckRepository.find(numberControlTruck);
     }
 

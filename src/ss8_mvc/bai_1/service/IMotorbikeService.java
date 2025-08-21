@@ -2,10 +2,10 @@ package ss8_mvc.bai_1.service;
 
 import ss8_mvc.bai_1.entity.Motorbike;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IMotorbikeService {
-    ArrayList<Motorbike> findAll();
+    List<Motorbike> findAll();
 
     boolean add(Motorbike car);
 
@@ -13,7 +13,7 @@ public interface IMotorbikeService {
 
     boolean delete(String numberControlMotorbike);
 
-    ArrayList<Motorbike> find(String numberControlMotorbike);
+    List<Motorbike> find(String numberControlMotorbike);
 
     public int findMotorbikeByNumberControl(String numberControl);
 }

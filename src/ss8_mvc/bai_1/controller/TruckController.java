@@ -7,6 +7,7 @@ import ss8_mvc.bai_1.service.TruckService;
 import ss8_mvc.bai_1.view.TruckView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TruckController {
@@ -26,7 +27,7 @@ public class TruckController {
             int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DISPLAY:
-                    ArrayList<Truck> trucks = this.truckService.findAll();
+                    List<Truck> trucks = this.truckService.findAll();
                     TruckView.display(trucks);
                     break;
                 case ADD:
@@ -60,7 +61,7 @@ public class TruckController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    ArrayList<Truck> truckFindList = truckService.find(TruckView.inputNumberControlTruck());
+                    List<Truck> truckFindList = truckService.find(TruckView.inputNumberControlTruck());
                     if (truckFindList != null) {
                         System.out.println(truckFindList.size() == 1 ? "There is " + truckFindList.size() + " result:" : "There are " + truckFindList.size() + " results:");
                         for (Truck truckFind : truckFindList) {

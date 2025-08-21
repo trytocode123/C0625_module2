@@ -7,6 +7,7 @@ import ss8_mvc.bai_1.service.MotorbikeService;
 import ss8_mvc.bai_1.view.MotorbikeView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MotorbikeController {
@@ -26,7 +27,7 @@ public class MotorbikeController {
             int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DISPLAY:
-                    ArrayList<Motorbike> motorbikes = this.motorbikeService.findAll();
+                    List<Motorbike> motorbikes = this.motorbikeService.findAll();
                     MotorbikeView.display(motorbikes);
                     break;
                 case ADD:
@@ -59,7 +60,7 @@ public class MotorbikeController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    ArrayList<Motorbike> motorbikeFindList = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
+                    List<Motorbike> motorbikeFindList = motorbikeService.find(MotorbikeView.inputNumberControlMotorBike());
                     if (motorbikeFindList != null) {
                         System.out.println(motorbikeFindList.size() == 1 ? "There is " + motorbikeFindList.size() + " result:" : "There are " + motorbikeFindList.size() + " results:");
                         for (Motorbike motorbikeFind : motorbikeFindList) {

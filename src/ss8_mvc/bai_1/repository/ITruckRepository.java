@@ -2,10 +2,10 @@ package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Truck;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ITruckRepository {
-    ArrayList<Truck> findAll();
+    List<Truck> findAll();
 
     boolean add(Truck car);
 
@@ -13,5 +13,5 @@ public interface ITruckRepository {
 
     boolean delete(String numberControlTruck);
 
-    ArrayList<Truck> find(String numberControlTruck);
+    List<Truck> find(String numberControlTruck);
 }

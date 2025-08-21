@@ -6,11 +6,6 @@ public class Motorbike extends Vehicle {
     public Motorbike() {
     }
 
-    @Override
-    public String getInfoToCSV() {
-        return "";
-    }
-
     public Motorbike(String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, double power) {
         super(controlNumber, nameManufacturer, yearManufacture, nameOwner);
         this.power = power;
@@ -27,11 +22,15 @@ public class Motorbike extends Vehicle {
     @Override
     public String toString() {
         return "Motorbike{" +
-                "power=" + power + " cc " +
                 ", Control number='" + controlNumber + '\'' +
                 ", Name manufacturer='" + nameManufacturer + '\'' +
                 ", Year manufacture='" + yearManufacture + '\'' +
-                ", Name owner='" + nameOwner + '\'' +
+                ", Name owner='" + nameOwner + '\'' + "power=" + power + " cc " +
                 '}';
+    }
+
+    @Override
+    public String getInfoToCSV() {
+        return this.controlNumber + "," + nameManufacturer + "," + yearManufacture + "," + nameOwner + "," + power;
     }
 }

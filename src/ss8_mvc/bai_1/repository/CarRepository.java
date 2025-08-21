@@ -95,16 +95,16 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public List<String> find(String numberControlCar) {
+    public List<Car> find(String numberControlCar) {
         List<String> stringList = null;
-        List<String> carFindList = new ArrayList<>();
+        List<Car> carFindList = new ArrayList<>();
         try {
             String[] array = null;
             stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
             for (String line : stringList) {
                 array = line.split(",");
                 if (array[0].contains(numberControlCar)) {
-                    carFindList.add(line);
+                    carFindList.add(new Car(array[0], array[1], Integer.parseInt(array[2]), array[3], Integer.parseInt(array[4]), array[5]));
                 }
             }
             return carFindList;

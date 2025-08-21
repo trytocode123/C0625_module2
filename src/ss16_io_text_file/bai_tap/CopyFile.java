@@ -17,9 +17,7 @@ public class CopyFile {
         String path1 = sc.nextLine();
         System.out.println("Path 2");
         String path2 = sc.nextLine();
-        if (copy(path1, path2)) {
-            System.out.println("Copied");
-        } else {
+        if (!copy(path1, path2)) {
             System.out.println("Can not copied");
         }
     }
@@ -35,14 +33,17 @@ public class CopyFile {
             System.out.println("Are you sure to override (Y/N)?");
             Scanner sc = new Scanner(System.in);
             String cf = sc.nextLine().toLowerCase();
-            if (cf.equals("Y")) {
+            if (cf.equals("y")) {
                 try {
                     stringList = ReadFileAndWriteFile.readFileCSV(path1);
                     ReadFileAndWriteFile.writeFileCSV(path2, stringList, true);
+                    System.out.println(f1.length() + " characters copied");
                     return true;
                 } catch (IOException e) {
                     System.out.println("Error of reading file");
                 }
+            } else {
+                System.out.println("Wrong syntax");
             }
         }
         return false;

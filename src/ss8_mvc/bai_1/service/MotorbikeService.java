@@ -3,13 +3,13 @@ package ss8_mvc.bai_1.service;
 import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.repository.MotorbikeRepository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MotorbikeService implements IMotorbikeService {
     MotorbikeRepository motorbikeRepository = new MotorbikeRepository();
 
     @Override
-    public ArrayList<Motorbike> findAll() {
+    public List<Motorbike> findAll() {
         return motorbikeRepository.findAll();
     }
 
@@ -29,7 +29,7 @@ public class MotorbikeService implements IMotorbikeService {
     }
 
     @Override
-    public ArrayList<Motorbike> find(String numberControlMotorbike) {
+    public List<Motorbike> find(String numberControlMotorbike) {
         return motorbikeRepository.find(numberControlMotorbike);
     }
 

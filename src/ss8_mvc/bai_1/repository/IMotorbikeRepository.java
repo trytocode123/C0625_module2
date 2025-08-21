@@ -2,10 +2,10 @@ package ss8_mvc.bai_1.repository;
 
 import ss8_mvc.bai_1.entity.Motorbike;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IMotorbikeRepository {
-    ArrayList<Motorbike> findAll();
+    List<Motorbike> findAll();
 
     boolean add(Motorbike motorbike);
 
@@ -13,5 +13,5 @@ public interface IMotorbikeRepository {
 
     boolean delete(String motorbikeControl);
 
-    ArrayList<Motorbike> find(String motorbikeControl);
+    List<Motorbike> find(String motorbikeControl);
 }

@@ -1,71 +1,121 @@
 package ss8_mvc.bai_1.repository;
 
 
+import ss8_mvc.bai_1.entity.Motorbike;
 import ss8_mvc.bai_1.entity.Truck;
+import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
 public class TruckRepository implements ITruckRepository {
 
-    private static final ArrayList<Truck> truckList = new ArrayList<>();
-
-    static {
-        truckList.add(new Truck("43C-11231", "Honda", 2019, "Nguyen Van A", 1));
-        truckList.add(new Truck("75C-11212", "Honda", 2019, "Nguyen Van B", 2));
-        truckList.add(new Truck("74C-11345", "Honda", 2019, "Nguyen Van C", 3));
-        truckList.add(new Truck("92C-68678", "Honda", 2019, "Nguyen Van D", 4));
-    }
+    final static String pathFile = "src/ss8_mvc/bai_1/data/truck.csv";
 
     @Override
-    public ArrayList<Truck> findAll() {
-        return truckList;
+    public List<Truck> findAll() {
+        List<Truck> motorbikeList = new ArrayList<>();
+        try {
+            List<String> stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            String[] array = null;
+            for (String line : stringList) {
+                array = line.split(",");
+                Truck truck = new Truck(array[0], array[1], Integer.parseInt(array[2]), array[3], Double.parseDouble(array[4]));
+                motorbikeList.add(truck);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
+        }
+        return motorbikeList;
     }
 
     public int findTruckByNumberControl(String numberControl) {
-        for (int i = 0; i < truckList.size(); i++) {
-            if (Objects.equals(truckList.get(i).getControlNumber(), numberControl)) {
-                return i;
+        List<String> stringList = null;
+        try {
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            String[] array = null;
+            for (int i = 0; i < stringList.size(); i++) {
+                array = stringList.get(i).split(",");
+                for (String str : array) {
+                    if (str.equals(numberControl)) {
+                        return i;
+                    }
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return -1;
     }
 
     @Override
     public boolean add(Truck truck) {
-        truckList.add(truck);
-        return true;
+        List<String> stringList = new ArrayList<>();
+        try {
+            stringList.add(truck.getInfoToCSV());
+            ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, true);
+            return true;
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
+        }
+
+        return false;
     }
 
     @Override
     public boolean update(int i, Truck truck) {
 
-        truckList.set(i, truck);
+        List<String> stringList = null;
+        try {
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            stringList.set(i, truck.getInfoToCSV());
+            ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, false);
+        } catch (IOException e) {
+            System.out.println("Error reading and writing");
+        }
+
         return true;
 
     }
 
     @Override
     public boolean delete(String numberControlTruck) {
-        if (findTruckByNumberControl(numberControlTruck) != -1) {
-            int i = findTruckByNumberControl(numberControlTruck);
-            truckList.remove(i);
-            return true;
+        int index = findTruckByNumberControl(numberControlTruck);
+        List<String> stringList = null;
+        try {
+            if (index != -1) {
+                stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+                stringList.remove(index);
+                ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, false);
+                return true;
+            }
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return false;
     }
 
     @Override
-    public ArrayList<Truck> find(String numberControlTruck) {
-        ArrayList<Truck> truckFindList = new ArrayList<>();
-        for (Truck truck : truckList) {
-            if (truck.getControlNumber().contains(numberControlTruck)) {
-                truckFindList.add(truck);
+    public List<Truck> find(String numberControlTruck) {
+        List<String> stringList = null;
+        List<Truck> truckFindList = new ArrayList<>();
+        try {
+            String[] array = null;
+            stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            for (String line : stringList) {
+                array = line.split(",");
+                if (array[0].contains(numberControlTruck)) {
+//                    String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, double payload
+                    truckFindList.add(new Truck(array[0], array[1], Integer.parseInt(array[2]), array[3], Double.parseDouble(array[4])));
+                }
             }
-        }
-        if (!truckFindList.isEmpty()) {
             return truckFindList;
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
         }
         return null;
     }

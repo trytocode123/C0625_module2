@@ -7,11 +7,6 @@ public class Car extends Vehicle {
     public Car() {
     }
 
-    @Override
-    public String getInfoToCSV() {
-        return this.controlNumber + "," + nameManufacturer + "," + yearManufacture + "," + nameOwner + "," + numberSeat + "," + typeCar;
-    }
-
     public Car(String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, int numberSeat, String typeCar) {
         super(controlNumber, nameManufacturer, yearManufacture, nameOwner);
         this.numberSeat = numberSeat;
@@ -44,5 +39,10 @@ public class Car extends Vehicle {
                 ", yearManufacture=" + yearManufacture +
                 ", nameOwner='" + nameOwner + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getInfoToCSV() {
+        return this.controlNumber + "," + nameManufacturer + "," + yearManufacture + "," + nameOwner + "," + numberSeat + "," + typeCar;
     }
 }

@@ -61,10 +61,10 @@ public class CarController {
                     break;
                 case FIND:
                     System.out.println("This is find function");
-                    List<String> carFindList = carService.find(CarView.inputNumberControlCar());
+                    List<Car> carFindList = carService.find(CarView.inputNumberControlCar());
                     if (carFindList != null) {
                         System.out.println(carFindList.size() == 1 ? "There is " + carFindList.size() + " result:" : "There are " + carFindList.size() + " results:");
-                        for (String carFind : carFindList) {
+                        for (Car carFind : carFindList) {
                             System.out.println(carFind);
                         }
                     } else {

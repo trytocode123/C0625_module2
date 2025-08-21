@@ -2,13 +2,14 @@ package ss8_mvc.bai_1.view;
 
 import ss8_mvc.bai_1.entity.Truck;
 
-import java.util.ArrayList;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class TruckView {
     private static Scanner sc = new Scanner(System.in);
 
-    public static void display(ArrayList<Truck> trucks) {
+    public static void display(List<Truck> trucks) {
         for (Truck truck : trucks) {
             System.out.println(truck);
         }

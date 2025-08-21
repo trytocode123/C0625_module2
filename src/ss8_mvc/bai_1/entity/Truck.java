@@ -8,7 +8,7 @@ public class Truck extends Vehicle {
 
     @Override
     public String getInfoToCSV() {
-        return "";
+        return this.controlNumber + "," + nameManufacturer + "," + yearManufacture + "," + nameOwner + "," + payload;
     }
 
     public Truck(String controlNumber, String nameManufacturer, int yearManufacture, String nameOwner, double payload) {

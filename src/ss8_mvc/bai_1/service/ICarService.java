@@ -14,7 +14,7 @@ public interface ICarService {
 
     boolean delete(String numberControlCar);
 
-    List<String> find(String numberControlCar);
+    List<Car> find(String numberControlCar);
 
     public int findCarByNumberControl(String numberControl);
 }

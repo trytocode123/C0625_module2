@@ -30,7 +30,7 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public List<String> find(String numberControlCar) {
+    public List<Car> find(String numberControlCar) {
         return carRepository.find(numberControlCar);
     }
 
