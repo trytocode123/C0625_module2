@@ -61,9 +61,8 @@ public class TruckRepository implements ITruckRepository {
             return true;
         } catch (IOException e) {
             System.out.println("Error of reading file");
+            return false;
         }
-
-        return false;
     }
 
     @Override
