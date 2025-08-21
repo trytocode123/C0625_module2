@@ -16,6 +16,9 @@ public class CarService implements ICarService {
 
     @Override
     public boolean add(Car car) {
+        if (carRepository.findCarByNumberControl(car.getControlNumber()) != -1) {
+            return false;
+        }
         return carRepository.add(car);
     }
 
@@ -37,5 +40,4 @@ public class CarService implements ICarService {
     public int findCarByNumberControl(String numberControl) {
         return carRepository.findCarByNumberControl(numberControl);
     }
-
 }

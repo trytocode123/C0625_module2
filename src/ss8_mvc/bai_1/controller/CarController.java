@@ -34,12 +34,10 @@ public class CarController {
                 case ADD:
                     System.out.println("This is add function");
                     String numberControl = CarView.inputNumberControlCar();
-                    if (carService.findCarByNumberControl(numberControl) == -1) {
-                        Car car = CarView.inputForCarData();
-                        boolean resultAdd = this.carService.add(car);
-                        if (resultAdd) {
-                            System.out.println("Add car succeed");
-                        }
+                    Car car = CarView.inputForCarData();
+                    boolean resultAdd = this.carService.add(car);
+                    if (resultAdd) {
+                        System.out.println("Add car succeed");
                     } else {
                         System.out.println("Car existed");
                     }
