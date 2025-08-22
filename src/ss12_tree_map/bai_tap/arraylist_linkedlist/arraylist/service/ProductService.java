@@ -16,8 +16,14 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public boolean add(Product product) {
-        return productRepository.add(product);
+    public boolean add(Product newProduct) {
+        List<Product> productList = findAll();
+        for (Product product : productList) {
+            if (isValid(newProduct.getID()) == product.getID()) {
+                return false;
+            }
+        }
+        return productRepository.add(newProduct);
     }
 
     @Override
@@ -26,15 +32,19 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public boolean update(int i, Product product) {
-        return productRepository.update(i, product);
+    public boolean update(int i, Product updateProduct) {
+        return productRepository.update(i, updateProduct);
     }
 
     public int isValid(int iD) {
         return productRepository.isValid(iD);
     }
 
-    public void sortIncrease(List<Product> productList) {productRepository.sortIncrease(productList);}
+    public void sortIncrease(List<Product> productList) {
+        productRepository.sortIncrease(productList);
+    }
 
-    public void sortDecrease(List<Product> productList) {productRepository.sortDecrease(productList);}
+    public void sortDecrease(List<Product> productList) {
+        productRepository.sortDecrease(productList);
+    }
 }

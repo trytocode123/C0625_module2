@@ -16,9 +16,9 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public boolean add(Product product) {
+    public boolean add(Product newProduct) {
         List<Product> listProduct = ReadFileAndWriteFile.readBinaryFile(pathFile);
-        listProduct.add(product);
+        listProduct.add(newProduct);
         ReadFileAndWriteFile.writeBinaryFile(pathFile, listProduct);
         return true;
     }
@@ -46,9 +46,9 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public boolean update(int i, Product product) {
+    public boolean update(int i, Product updateProduct) {
         List<Product> listProduct = ReadFileAndWriteFile.readBinaryFile(pathFile);
-        listProduct.set(i, product);
+        listProduct.set(i, updateProduct);
         ReadFileAndWriteFile.writeBinaryFile(pathFile, listProduct);
         return true;
     }
