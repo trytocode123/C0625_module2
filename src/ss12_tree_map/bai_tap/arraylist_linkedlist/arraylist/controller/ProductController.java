@@ -41,6 +41,7 @@ public class ProductController {
 
                 case UPDATE:
                     System.out.println("This is update product function");
+
                     int indexUpdate = productService.isValid(ProductView.inputID());
                     if (indexUpdate != -1) {
                         productService.update(indexUpdate, ProductView.inputForEditProduct(productList.get(indexUpdate).getID()));
@@ -79,17 +80,18 @@ public class ProductController {
 
                 case SORT_INCREASE:
                     System.out.println("This is sort increase by price");
-                    productService.sortIncrease();
-                    for (Product productInc : productList) {
-                        System.out.println(productInc);
+                    List<Product> listInc = productService.sortIncrease();
+                    for (Product product1 : listInc) {
+                        System.out.println(product1);
                     }
                     break;
 
                 case SORT_DECREASE:
                     System.out.println("This is sort decrease by price");
                     productService.sortDecrease();
-                    for (Product productDec : productList) {
-                        System.out.println(productDec);
+                    List<Product> listDec = productService.sortDecrease();
+                    for (Product product2 : listDec) {
+                        System.out.println(product2);
                     }
                     break;
 
