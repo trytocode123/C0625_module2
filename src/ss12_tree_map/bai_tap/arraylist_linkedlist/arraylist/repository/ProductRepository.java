@@ -3,7 +3,6 @@ package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.repository;
 import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.entity.Product;
 import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository implements IProductRepository {
