@@ -33,7 +33,6 @@ public class CarController {
                     break;
                 case ADD:
                     System.out.println("This is add function");
-                    String numberControl = CarView.inputNumberControlCar();
                     Car car = CarView.inputForCarData();
                     boolean resultAdd = this.carService.add(car);
                     if (resultAdd) {

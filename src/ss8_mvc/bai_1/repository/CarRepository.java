@@ -4,16 +4,20 @@ import ss8_mvc.bai_1.entity.Car;
 import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class CarRepository implements ICarRepository {
     final static String pathFile = "src/ss8_mvc/bai_1/data/car.csv";
+//    final static String pathFileBinary = "src/ss8_mvc/bai_1/data/car.dat";
 
     @Override
     public List<Car> findAll() {
         List<Car> carList = new ArrayList<>();
+//        carList = ReadFileAndWriteFile.readBinaryFile(pathFileBinary);
+
         try {
             List<String> stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
             String[] array = null;
@@ -62,6 +66,16 @@ public class CarRepository implements ICarRepository {
 
         return false;
     }
+
+
+//    @Override
+//    public boolean add(Car car) {
+//        List<Car> carList = new ArrayList<>();
+//        carList = ReadFileAndWriteFile.readBinaryFile(pathFileBinary);
+//        carList.add(car);
+//        ReadFileAndWriteFile.writeBinaryFile(pathFileBinary, carList);
+//        return true;
+//    }
 
     @Override
     public boolean update(int i, Car car) {

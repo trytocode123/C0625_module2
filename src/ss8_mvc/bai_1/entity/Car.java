@@ -1,6 +1,8 @@
 package ss8_mvc.bai_1.entity;
 
-public class Car extends Vehicle {
+import java.io.Serializable;
+
+public class Car extends Vehicle implements Serializable {
     private int numberSeat;
     private String typeCar;
 
@@ -32,12 +34,11 @@ public class Car extends Vehicle {
     @Override
     public String toString() {
         return "Car{" +
-                "numberSeat=" + numberSeat +
-                ", typeCar='" + typeCar + '\'' +
-                ", controlNumber='" + controlNumber + '\'' +
+                "controlNumber='" + controlNumber + '\'' +
                 ", nameManufacturer='" + nameManufacturer + '\'' +
                 ", yearManufacture=" + yearManufacture +
-                ", nameOwner='" + nameOwner + '\'' +
+                ", nameOwner='" + nameOwner + '\'' +", numberSeat=" + numberSeat +
+                ", typeCar='" + typeCar +
                 '}';
     }
 

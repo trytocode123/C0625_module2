@@ -35,15 +35,15 @@ public class ProductController {
             switch (option) {
                 case ADD:
                     Product product = ProductView.inputForProduct();
-                    productService.findAll().add(product);
+                    productService.add(product);
                     System.out.println("Add success");
                     break;
 
                 case UPDATE:
                     System.out.println("This is update product function");
-                    int iUpdate = productService.isValid(ProductView.inputID());
-                    if (iUpdate != -1) {
-                        productList.set(iUpdate, ProductView.inputForEditProduct(productList.get(iUpdate).getID()));
+                    int indexUpdate = productService.isValid(ProductView.inputID());
+                    if (indexUpdate != -1) {
+                        productService.update(indexUpdate, ProductView.inputForEditProduct(productList.get(indexUpdate).getID()));
                         System.out.println("Update success");
                     } else {
                         System.out.println("Not found to update");
@@ -62,7 +62,7 @@ public class ProductController {
 
                 case DISPLAY:
                     System.out.println("This is list of product");
-                    for (Product productDisplay : productList) {
+                    for (Product productDisplay : productService.findAll()) {
                         System.out.println(productDisplay);
                     }
                     break;

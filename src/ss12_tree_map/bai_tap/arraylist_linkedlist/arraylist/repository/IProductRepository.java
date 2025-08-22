@@ -1,5 +1,6 @@
 package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.repository;
 
+import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.controller.ProductController;
 import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.entity.Product;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface IProductRepository {
     boolean delete(int iD);
 
     boolean update(int i, Product product);
+
 }

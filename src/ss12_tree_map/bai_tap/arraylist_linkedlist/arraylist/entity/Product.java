@@ -1,6 +1,8 @@
 package ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.entity;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int iD;
     private String name;
     private int price;

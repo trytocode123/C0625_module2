@@ -16,9 +16,13 @@ public class CarService implements ICarService {
 
     @Override
     public boolean add(Car car) {
-        if (carRepository.findCarByNumberControl(car.getControlNumber()) != -1) {
-            return false;
-        }
+//        List<Car> carList = carRepository.findAll();
+//        for (Car carAdd : carList) {
+//            if (carAdd.getControlNumber().equals(car.getControlNumber())) {
+//                return false;
+//            }
+//        }
+
         return carRepository.add(car);
     }
 

@@ -4,9 +4,10 @@ import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.entity.Product;
 import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.repository.ProductRepository;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ProductService implements IProductService {
+public class ProductService implements IProductService{
     ProductRepository productRepository = new ProductRepository();
 
     @Override
