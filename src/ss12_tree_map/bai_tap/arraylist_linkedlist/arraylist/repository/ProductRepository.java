@@ -9,7 +9,6 @@ public class ProductRepository implements IProductRepository {
 
     final static String pathFile = "src/ss12_tree_map/bai_tap/arraylist_linkedlist/arraylist/data/product.dat";
 
-
     @Override
     public List<Product> findAll() {
         return ReadFileAndWriteFile.readBinaryFile(pathFile);
