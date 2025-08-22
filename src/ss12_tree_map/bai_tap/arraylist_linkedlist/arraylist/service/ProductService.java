@@ -34,12 +34,10 @@ public class ProductService implements IProductService {
         return productRepository.isValid(iD);
     }
 
-    public void sortIncrease(List<Product> productList) {
-         productRepository.sortIncrease(productList);
+    public void sortIncrease(List<Product> productList) {productRepository.sortIncrease(productList);
     }
 
-    public void sortDecrease(List<Product> productList) {
-        productRepository.sortDecrease(productList);
+    public void sortDecrease(List<Product> productList) {productRepository.sortDecrease(productList);
     }
 
 }

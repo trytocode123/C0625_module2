@@ -5,7 +5,6 @@ import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ProductRepository implements IProductRepository {
 
@@ -14,9 +13,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> findAll() {
-        List<Product> listProduct = new ArrayList<>();
-        listProduct = ReadFileAndWriteFile.readBinaryFile(pathFile);
-        return listProduct;
+        return ReadFileAndWriteFile.readBinaryFile(pathFile);
     }
 
     @Override
