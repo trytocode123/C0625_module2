@@ -7,7 +7,7 @@ import ss12_tree_map.bai_tap.arraylist_linkedlist.arraylist.repository.ProductRe
 import java.io.Serializable;
 import java.util.List;
 
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     ProductRepository productRepository = new ProductRepository();
 
     @Override
@@ -34,12 +34,12 @@ public class ProductService implements IProductService{
         return productRepository.isValid(iD);
     }
 
-    public List<Product> sortIncrease() {
-       return productRepository.sortIncrease();
+    public void sortIncrease(List<Product> productList) {
+         productRepository.sortIncrease(productList);
     }
 
-    public List<Product> sortDecrease() {
-       return productRepository.sortDecrease();
+    public void sortDecrease(List<Product> productList) {
+        productRepository.sortDecrease(productList);
     }
 
 }

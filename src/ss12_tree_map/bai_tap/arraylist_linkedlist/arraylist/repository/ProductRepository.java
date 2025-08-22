@@ -57,15 +57,11 @@ public class ProductRepository implements IProductRepository {
         return true;
     }
 
-    public List<Product> sortIncrease() {
-        List<Product> listProduct = ReadFileAndWriteFile.readBinaryFile(pathFile);
-        listProduct.sort(new SortIncrease());
-        return listProduct;
+    public void sortIncrease(List<Product> productList) {
+        productList.sort(new SortIncrease());
     }
 
-    public List<Product> sortDecrease() {
-        List<Product> listProduct = ReadFileAndWriteFile.readBinaryFile(pathFile);
-        listProduct.sort(new SortDecrease());
-        return listProduct;
+    public void sortDecrease(List<Product> productList) {
+        productList.sort(new SortDecrease());
     }
 }

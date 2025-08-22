@@ -26,7 +26,7 @@ public class ProductController {
 
         boolean flag = true;
         ProductService productService = new ProductService();
-        List<Product> productList = productService.findAll();
+        List<Product> productList = null;
         int option;
         while (flag) {
             System.out.println("1. Add\n2. Update\n3. Delete\n4. Display\n5. Find\n6. Sort Increase\n7. Sort Decrease\n8. Exit");
@@ -34,17 +34,17 @@ public class ProductController {
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case ADD:
-                    Product product = ProductView.inputForProduct();
-                    productService.add(product);
+                    Product productAdd = ProductView.inputForProduct();
+                    productService.add(productAdd);
                     System.out.println("Add success");
                     break;
 
                 case UPDATE:
                     System.out.println("This is update product function");
-
-                    int indexUpdate = productService.isValid(ProductView.inputID());
+                    int iDUpdate = ProductView.inputID();
+                    int indexUpdate = productService.isValid(iDUpdate);
                     if (indexUpdate != -1) {
-                        productService.update(indexUpdate, ProductView.inputForEditProduct(productList.get(indexUpdate).getID()));
+                        productService.update(indexUpdate, ProductView.inputForEditProduct(iDUpdate));
                         System.out.println("Update success");
                     } else {
                         System.out.println("Not found to update");
@@ -62,13 +62,15 @@ public class ProductController {
                     break;
 
                 case DISPLAY:
+                    productList = productService.findAll();
                     System.out.println("This is list of product");
-                    for (Product productDisplay : productService.findAll()) {
-                        System.out.println(productDisplay);
+                    for (Product product : productList) {
+                        System.out.println(product);
                     }
                     break;
 
                 case FIND:
+                    productList = productService.findAll();
                     System.out.println("This is find product function");
                     int indexFind = productService.isValid(ProductView.inputID());
                     if (indexFind != -1) {
@@ -79,19 +81,20 @@ public class ProductController {
                     break;
 
                 case SORT_INCREASE:
+                    productList = productService.findAll();
                     System.out.println("This is sort increase by price");
-                    List<Product> listInc = productService.sortIncrease();
-                    for (Product product1 : listInc) {
-                        System.out.println(product1);
+                    productService.sortIncrease(productList);
+                    for (Product productInc : productList) {
+                        System.out.println(productInc);
                     }
                     break;
 
                 case SORT_DECREASE:
+                    productList = productService.findAll();
                     System.out.println("This is sort decrease by price");
-                    productService.sortDecrease();
-                    List<Product> listDec = productService.sortDecrease();
-                    for (Product product2 : listDec) {
-                        System.out.println(product2);
+                    productService.sortDecrease(productList);
+                    for (Product productDec : productList) {
+                        System.out.println(productDec);
                     }
                     break;
 
