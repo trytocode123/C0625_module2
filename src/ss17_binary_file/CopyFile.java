@@ -1,7 +1,6 @@
-package ss16_io_text_file.bai_tap;
+package ss17_binary_file;
 
 import ss8_mvc.bai_1.util.ReadFileAndWriteFile;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -33,14 +32,10 @@ public class CopyFile {
             Scanner sc = new Scanner(System.in);
             String cf = sc.nextLine().toLowerCase();
             if (cf.equals("y")) {
-                try {
-                    stringList = ReadFileAndWriteFile.readFileCSV(path1);
-                    ReadFileAndWriteFile.writeFileCSV(path2, stringList, true);
-                    System.out.println(f1.length() + " characters copied");
-                    return true;
-                } catch (IOException e) {
-                    System.out.println("Error of reading file");
-                }
+                stringList = ReadFileAndWriteFile.readBinaryFile(path1);
+                ReadFileAndWriteFile.writeBinaryFile(path2, stringList);
+                System.out.println(f1.length() + " characters copied");
+                return true;
             } else {
                 System.out.println("Wrong syntax");
             }
