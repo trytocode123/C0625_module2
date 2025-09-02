@@ -1,4 +1,39 @@
 package furama.service;
 
-public class CustomerService {
+import furama.entity.Customer;
+import furama.repository.CustomerRepository;
+
+import java.util.List;
+
+public class CustomerService implements ICustomerService {
+    CustomerRepository customerRepository = new CustomerRepository();
+
+    @Override
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public boolean add(Customer customer) {
+        return customerRepository.add(customer);
+    }
+
+    @Override
+    public boolean update(int i, Customer customer) {
+        if (i != 1) {
+            return customerRepository.update(i, customer);
+        }
+        return false;
+    }
+
+    @Override
+    public int isValid(String iD) {
+        List<Customer> customerList = findAll();
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getiD().equals(iD)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

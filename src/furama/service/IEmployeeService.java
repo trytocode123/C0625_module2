@@ -1,4 +1,7 @@
 package furama.service;
 
-public interface IEmployeeService {
+import furama.entity.Employee;
+
+public interface IEmployeeService extends IService<Employee> {
+    int isValid(String iD);
 }

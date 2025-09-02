@@ -1,4 +1,4 @@
-package ss19_regex.bai_tap.bai_1;
+package ss19_regex.bai_tap.bai_2;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class ValidateTelephone {
     }
 
     public static boolean checkTelephone(String telephone) {
-        String regex = "^\\(\\d{2}\\)-\\(0\\d{9}\\)$";
+        String regex = "\\d{2}-0\\d{9}";
         return telephone.matches(regex);
     }
 }

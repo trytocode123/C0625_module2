@@ -1,4 +1,6 @@
 package furama.repository;
 
-public interface ICustomerRepository {
+import furama.entity.Customer;
+
+public interface ICustomerRepository extends IRepository<Customer> {
 }

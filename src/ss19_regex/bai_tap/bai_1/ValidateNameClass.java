@@ -2,7 +2,7 @@ package ss19_regex.bai_tap.bai_1;
 
 import java.util.Scanner;
 
-public class ValidateName {
+public class ValidateNameClass {
     public static void main(String[] args) {
         System.out.println("Enter class name to check: ");
         Scanner sc = new Scanner(System.in);

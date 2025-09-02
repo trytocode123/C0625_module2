@@ -1,7 +1,7 @@
 package furama.util;
 
 
-public class RegexInput {
+public class RegexInputPeople {
     public static void checkId(String iD, String format) throws UserException {
         String regexId = format + "-\\d{4}";
         if (!iD.matches(regexId)) {

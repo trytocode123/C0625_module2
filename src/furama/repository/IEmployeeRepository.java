@@ -1,4 +1,7 @@
 package furama.repository;
 
-public interface IEmployeeRepository {
+import furama.entity.Employee;
+import furama.service.IService;
+
+public interface IEmployeeRepository extends IService<Employee> {
 }

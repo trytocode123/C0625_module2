@@ -1,4 +1,34 @@
 package furama.view;
 
+import furama.entity.Contract;
+
+import java.util.List;
+import java.util.Scanner;
+
 public class ContractView {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void display(List<Contract> contracts) {
+        for (Contract contract : contracts) {
+            System.out.println(contract);
+        }
+    }
+
+    public static Contract inputForContract(String iDBooking) {
+        System.out.println("Enter number contract");
+        String numberContract = sc.nextLine();
+        System.out.println("Enter deposit");
+        int deposit = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter total payment");
+        int totalPayment = Integer.parseInt(sc.nextLine());
+        return new Contract(numberContract, iDBooking, deposit, totalPayment);
+    }
+
+    public static Contract inputForEditContract(String iDBooking, String numberContract) {
+        System.out.println("Enter deposit");
+        int deposit = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter total payment");
+        int totalPayment = Integer.parseInt(sc.nextLine());
+        return new Contract(numberContract, iDBooking, deposit, totalPayment);
+    }
 }

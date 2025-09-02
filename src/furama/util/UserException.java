@@ -1,7 +1,7 @@
 package furama.util;
 
-public class UserExceoption extends RuntimeException {
-  public UserExceoption(String message) {
-    super(message);
-  }
+public class UserException extends Exception {
+    public UserException(String message) {
+        super(message);
+    }
 }
