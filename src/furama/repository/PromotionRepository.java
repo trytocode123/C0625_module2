@@ -32,23 +32,6 @@ public class PromotionRepository implements IPromotionRepository {
         return bookings;
     }
 
-    public void addVoucher(int voucher10, int voucher20, int voucher50) {
-        Stack<Booking> bookingStack = findAllVoucher();
-
-        while (!bookingStack.isEmpty()) {
-            if (voucher10 > 0) {
-                System.out.println(bookingStack.pop() + " Voucher 10%");
-                voucher10--;
-            } else if (voucher20 > 0) {
-                System.out.println(bookingStack.pop() + " Voucher 20%");
-                voucher20--;
-            } else {
-                System.out.println(bookingStack.pop() + " Voucher 50%");
-                voucher50--;
-            }
-        }
-    }
-
     public Stack<Booking> findAllVoucher() {
         Stack<Booking> bookingStack = new Stack<>();
         TreeSet<Booking> bookings = bookingRepository.findAll();
@@ -62,6 +45,5 @@ public class PromotionRepository implements IPromotionRepository {
         }
         bookingStack.addAll(bookingSort);
         return bookingStack;
-
     }
 }

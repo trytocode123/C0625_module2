@@ -14,10 +14,6 @@ public class PromotionService implements IPromotionService {
         return promotionRepository.findAllByYear(year);
     }
 
-    @Override
-    public void addVoucher(int voucher10, int voucher20, int voucher50) {
-         promotionRepository.addVoucher(voucher10, voucher20, voucher50);
-    }
 
     public Stack<Booking> findAllVoucher() {
         return promotionRepository.findAllVoucher();

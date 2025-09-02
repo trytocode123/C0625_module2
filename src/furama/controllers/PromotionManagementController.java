@@ -40,25 +40,38 @@ public class PromotionManagementController {
                     break;
                 case DISPLAY_LIST_CUSTOMERS_GET_VOUCHER:
                     int stackSize = promotionService.findAllVoucher().size();
-                    System.out.println("Please enter the quantity of voucher equal: " + stackSize);
+                    Stack<Booking> bookingStack = promotionService.findAllVoucher();
+
                     int voucher10 = 0;
                     int voucher20 = 0;
                     int voucher50 = 0;
                     boolean result = false;
 
                     do {
+                        System.out.println("Please enter the quantity of voucher equal: " + stackSize);
                         System.out.println("Enter quantity of voucher 10%");
                         voucher10 = Integer.parseInt(sc.nextLine());
                         System.out.println("Enter quantity of voucher 20%");
                         voucher20 = Integer.parseInt(sc.nextLine());
                         System.out.println("Enter quantity of voucher 50%");
                         voucher50 = Integer.parseInt(sc.nextLine());
-                        if ((voucher10 + voucher20 + voucher50) == stackSize) {
+                        if (((voucher10 + voucher20 + voucher50) == stackSize) && voucher10 > 0 && voucher20 > 0 && voucher50 > 0) {
                             System.out.println("List customers get voucher");
-                            promotionService.addVoucher(voucher10, voucher20, voucher50);
+                            while (!bookingStack.isEmpty()) {
+                                if (voucher10 > 0) {
+                                    System.out.println(bookingStack.pop() + " Voucher 10%");
+                                    voucher10--;
+                                } else if (voucher20 > 0) {
+                                    System.out.println(bookingStack.pop() + " Voucher 20%");
+                                    voucher20--;
+                                } else {
+                                    System.out.println(bookingStack.pop() + " Voucher 50%");
+                                    voucher50--;
+                                }
+                            }
                             break;
                         } else {
-                            System.out.println("Please enter the quantity of voucher equal: " + stackSize);
+                            System.out.println("The quantity of voucher not valid");
                         }
                     } while (true);
                     break;
