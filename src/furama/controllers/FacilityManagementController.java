@@ -1,8 +1,6 @@
 package furama.controllers;
 
 import furama.entity.Facility;
-import furama.entity.Villa;
-import furama.repository.FacilityRepository;
 import furama.service.FacilityService;
 import furama.util.CheckOption;
 import furama.view.FacilityView;

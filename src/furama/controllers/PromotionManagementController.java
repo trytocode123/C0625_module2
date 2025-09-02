@@ -1,7 +1,6 @@
 package furama.controllers;
 
 import furama.entity.Booking;
-import furama.repository.IFacilityRepository;
 import furama.service.PromotionService;
 import furama.util.CheckOption;
 
@@ -36,12 +35,10 @@ public class PromotionManagementController {
                     } else {
                         bookings.forEach(System.out::println);
                     }
-
                     break;
                 case DISPLAY_LIST_CUSTOMERS_GET_VOUCHER:
                     int stackSize = promotionService.findAllVoucher().size();
                     Stack<Booking> bookingStack = promotionService.findAllVoucher();
-
                     int voucher10 = 0;
                     int voucher20 = 0;
                     int voucher50 = 0;

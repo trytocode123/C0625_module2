@@ -1,6 +1,5 @@
 package furama.repository;
 
-import furama.entity.Booking;
 import furama.entity.Contract;
 
 

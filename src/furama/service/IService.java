@@ -1,6 +1,4 @@
 package furama.service;
-import furama.util.UserException;
-
 
 import java.util.List;
 

@@ -6,7 +6,6 @@ import furama.entity.Room;
 import furama.entity.Villa;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class FacilityRepository implements IFacilityRepository {
     private final static LinkedHashMap<Facility, Integer> list = new LinkedHashMap<>();
