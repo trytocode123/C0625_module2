@@ -8,5 +8,4 @@ public interface IFacilityRepository {
     LinkedHashMap<Facility, Integer> findAll();
 
     boolean add(Facility facility, Integer value);
-
 }

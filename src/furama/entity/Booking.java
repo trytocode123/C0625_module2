@@ -26,11 +26,11 @@ public class Booking {
         this.iDService = iDService;
     }
 
-    public String getiD() {
+    public String getId() {
         return iD;
     }
 
-    public void setiD(String iD) {
+    public void setId(String iD) {
         this.iD = iD;
     }
 
@@ -81,11 +81,11 @@ public class Booking {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getiD());
+        return Objects.hash(this.getId());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return ((Booking) obj).getiD().equals(this.getiD());
+        return ((Booking) obj).getId().equals(this.getId());
     }
 }
