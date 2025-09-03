@@ -49,4 +49,10 @@ public class Villa extends Facility {
                 "\nStandard villa: " + standardVilla +
                 "\nNumber floor: " + numberFloor + "\n";
     }
+
+    public String getInfoToCSV() {
+        return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + ","
+                + this.getTypeRent() + "," + areaPool + "," + standardVilla + "," + numberFloor + ",";
+    }
+
 }

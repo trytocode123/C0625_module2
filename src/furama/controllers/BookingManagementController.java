@@ -52,6 +52,7 @@ public class BookingManagementController {
                     for (Customer customer : customerList) {
                         System.out.println(customer);
                     }
+
                     boolean result = bookingService.add(BookingView.inputForBooking());
                     if (result) {
                         bookingService.timeRent(facilityService.findAll());
@@ -91,7 +92,7 @@ public class BookingManagementController {
                     if (i == -1) {
                         System.out.println("Not found to edit");
                     } else {
-                        contractService.update(i, ContractView.inputForEditContract(contractList.get(i).getID(), contractList.get(i).getNumberContract()));
+                        contractService.update(i, ContractView.inputForEditContract(contractList.get(i).getID()));
                         System.out.println("Update succeed");
                     }
                     break;

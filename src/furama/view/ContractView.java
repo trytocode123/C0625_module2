@@ -15,20 +15,18 @@ public class ContractView {
     }
 
     public static Contract inputForContract(String iDBooking) {
-        System.out.println("Enter number contract");
-        String numberContract = sc.nextLine();
         System.out.println("Enter deposit");
         int deposit = Integer.parseInt(sc.nextLine());
         System.out.println("Enter total payment");
         int totalPayment = Integer.parseInt(sc.nextLine());
-        return new Contract(numberContract, iDBooking, deposit, totalPayment);
+        return new Contract(iDBooking, deposit, totalPayment);
     }
 
-    public static Contract inputForEditContract(String iDBooking, String numberContract) {
+    public static Contract inputForEditContract(String iDBooking) {
         System.out.println("Enter deposit");
         int deposit = Integer.parseInt(sc.nextLine());
         System.out.println("Enter total payment");
         int totalPayment = Integer.parseInt(sc.nextLine());
-        return new Contract(numberContract, iDBooking, deposit, totalPayment);
+        return new Contract(iDBooking, deposit, totalPayment);
     }
 }

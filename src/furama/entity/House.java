@@ -31,10 +31,10 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "\n----House----" + "\nID: " + this.getiD() + "\nName: " + this.getName() + "\nArea use: " + this.getAreUse() + "m²"
-                + "\nFee rent: " + this.getFeeRent() + "VND" + "\nMax quantity people: " + this.getMaxQuantityPeople()
-                + "\nType: rent: " + this.getTypeRent() +
-                "\nStandard house: " + standardHouse +
-                "\nNumber floor: " + numberFloor + "\n";
+        return "\n----House----" + "\nID: " + this.getiD() + "\nName: " + this.getName() + "\nArea use: " + this.getAreUse() + "m²" + "\nFee rent: " + this.getFeeRent() + "VND" + "\nMax quantity people: " + this.getMaxQuantityPeople() + "\nType: rent: " + this.getTypeRent() + "\nStandard house: " + standardHouse + "\nNumber floor: " + numberFloor + "\n";
+    }
+
+    public String getInfoToCSV() {
+        return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + "," + this.getTypeRent() + "," + numberFloor + ",";
     }
 }

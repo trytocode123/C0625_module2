@@ -1,8 +1,8 @@
 package furama.entity;
 
 public class Contract {
-
-    private String numberContract;
+    private static int count = 1;
+    private int numberContract;
     private String iD;
     private double advancePayment;
     private double totalPayment;
@@ -10,19 +10,15 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String numberContract, String iD, double advancePayment, double totalPayment) {
-        this.numberContract = numberContract;
+    public Contract(String iD, double advancePayment, double totalPayment) {
+        numberContract = generateId();
         this.iD = iD;
         this.advancePayment = advancePayment;
         this.totalPayment = totalPayment;
     }
 
-    public String getNumberContract() {
+    public int getNumberContract() {
         return numberContract;
-    }
-
-    public void setNumberContract(String numberContract) {
-        this.numberContract = numberContract;
     }
 
     public String getID() {
@@ -52,10 +48,14 @@ public class Contract {
     @Override
     public String toString() {
         return "Contract{" +
-                "\nNumber contract=" + numberContract +
+                "\nNumber contract: " + numberContract +
                 ",\nId: " + iD +
-                ",\nDeposit=" + advancePayment +
-                ",\nTotal payment=" + totalPayment +
-                '}';
+                ",\nDeposit: " + advancePayment +
+                ",\nTotal payment: " + totalPayment +
+                "}\n";
+    }
+
+    private int generateId() {
+        return count++;
     }
 }

@@ -34,6 +34,7 @@ public class FacilityManagementController {
                     LinkedHashMap<Facility, Integer> linkedHashMap = facilityService.findAll();
                     FacilityView.display(linkedHashMap);
                     break;
+
                 case ADD:
                     System.out.println("Add new facility");
                     boolean flagAdd = true;
@@ -49,30 +50,34 @@ public class FacilityManagementController {
                                 System.out.println("----Add New Villa----");
                                 facilityService.add(VillaView.inputForVilla(), 0);
                                 System.out.println("Add succeed");
+                                break;
                             case ADD_HOUSE:
                                 System.out.println("----Add New House----");
                                 facilityService.add(HouseView.inputForHouse(), 0);
+                                System.out.println("Add succeed");
                                 break;
                             case ADD_ROOM:
                                 System.out.println("----Add New Room----");
                                 facilityService.add(RoomView.inputForRoom(), 0);
+                                System.out.println("Add succeed");
                                 break;
                             case RETURN_FACILITY:
                                 flagAdd = false;
                         }
                     }
                     break;
+
                 case DISPLAY_2:
                     System.out.println("This is list facilities maintenance");
-                    LinkedHashMap<Facility, Integer> facilitymaintenance = new LinkedHashMap<>();
+                    LinkedHashMap<Facility, Integer> facilityMaintenance = new LinkedHashMap<>();
                     LinkedHashMap<Facility, Integer> facilityList = facilityService.findAll();
                     for (Map.Entry<Facility, Integer> entry : facilityList.entrySet()) {
                         if (entry.getValue() == 5) {
-                            facilitymaintenance.put(entry.getKey(), entry.getValue());
+                            facilityMaintenance.put(entry.getKey(), entry.getValue());
                         }
                     }
 
-                    for (Map.Entry<Facility, Integer> entry : facilitymaintenance.entrySet()) {
+                    for (Map.Entry<Facility, Integer> entry : facilityMaintenance.entrySet()) {
                         System.out.println(entry.getKey() + "Time of using: " + entry.getValue() + (entry.getValue() <= 1 ? " time" : " times"));
                     }
                     break;

@@ -79,4 +79,6 @@ public abstract class Facility {
                 ", typeRent='" + typeRent + '\'' +
                 '}';
     }
+
+    public abstract String getInfoToCSV();
 }

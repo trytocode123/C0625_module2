@@ -38,6 +38,7 @@ public class EmployeeManagementController {
                         System.out.println(employee);
                     }
                     break;
+
                 case ADD:
                     if (employeeService.add(EmployeeView.inputForEmployee())) {
                         System.out.println("Added new customer");
@@ -45,6 +46,7 @@ public class EmployeeManagementController {
                         System.out.println("Add fail");
                     }
                     break;
+
                 case EDIT:
                     System.out.println("Enter id to edit");
                     String iDEdit = null;

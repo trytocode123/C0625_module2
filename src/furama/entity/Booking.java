@@ -76,13 +76,7 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking: " +
-                "Id=" + iD +
-                ", Date booking=" + dateBooking.format(formatter) +
-                ", Start date=" + startDate.format(formatter) +
-                ", End date=" + endDate.format(formatter) +
-                ", Id customer=" + iDCustomer +
-                ", Id service=" + iDService;
+        return "Booking: " + "Id=" + iD + ", Date booking=" + dateBooking.format(formatter) + ", Start date=" + startDate.format(formatter) + ", End date=" + endDate.format(formatter) + ", Id customer=" + iDCustomer + ", Id service=" + iDService;
     }
 
     @Override

@@ -26,4 +26,9 @@ public class Room extends Facility {
                 + "\nType rent: " + this.getTypeRent() +
                 "\nFree service: " + freeService + "\n";
     }
+
+    public String getInfoToCSV() {
+        return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + ","
+                + this.getTypeRent() + "," + freeService + ",";
+    }
 }
