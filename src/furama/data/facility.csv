@@ -5,6 +5,6 @@ SVHO-0002,House,32.0,3000000.0,6,Optional,Standard,0,0
 SVHO-0003,House,33.0,2000000.0,7,Optional,Standard,2,2
 SVRO-0001,Room,31.0,2000000.0,7,Optional,Free,1
 SVRO-0002,Room,39.0,3000000.0,8,Optional,Free,1
-SVRO-9999,Room,40.0,2000000.0,10,Optional,Free,1
+SVRO-9999,Room,40.0,2000000.0,10,Optional,Free,4
 SVRO-6969,Room,36.0,3000000.0,9,Standard,Free,0
 SVHO-0765,House,31.0,2000000.0,4,Optional,Standard,0,0

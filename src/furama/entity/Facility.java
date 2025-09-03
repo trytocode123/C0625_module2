@@ -81,4 +81,7 @@ public abstract class Facility {
     }
 
     public abstract String getInfoToCSV();
+
+    public abstract String toTableRow(int timeUsed);
+
 }

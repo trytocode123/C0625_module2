@@ -76,7 +76,13 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking: " + "Id: " + iD + ", Date booking: " + dateBooking.format(formatter) + ", Start date: " + startDate.format(formatter) + ", End date: " + endDate.format(formatter) + ", Id customer: " + iDCustomer + ", Id service: " + iDService;
+      return   String.format("| %-5s | %-12s | %-12s | %-12s | %-10s | %-10s |",
+                iD,
+                dateBooking.format(formatter),
+                startDate.format(formatter),
+                endDate.format(formatter),
+                iDCustomer,
+                iDService);
     }
 
     @Override

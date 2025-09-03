@@ -60,11 +60,14 @@ public class BookingManagementController {
                     System.out.println("Booking succeed");
                     break;
                 case DISPLAY_BOOKING:
-                    System.out.println("List booking");
+                    System.out.println("List booking");System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
+                    System.out.println("| Id    | Date booking | Start date   | End date     | Customer id | ServiceID  |");
+                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     TreeSet<Booking> bookingTreeSet = bookingService.findAll();
                     for (Booking booking : bookingTreeSet) {
                         System.out.println(booking);
                     }
+                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     break;
                 case CREATE:
                     System.out.println("Enter information to create new contracts");
@@ -98,7 +101,6 @@ public class BookingManagementController {
                     break;
                 case EXIT:
                     flag = false;
-                    break;
                 default:
             }
         }

@@ -23,6 +23,8 @@ public class BookingRepository implements IBookingRepository {
         bookingTreeSet.add(new Booking("7", LocalDate.parse("11/09/2025", formatter), LocalDate.parse("13/09/2025", formatter), LocalDate.parse("04/12/2025", formatter), "KH-4211", "SVHO-0003"));
         bookingTreeSet.add(new Booking("8", LocalDate.parse("09/09/2025", formatter), LocalDate.parse("10/09/2025", formatter), LocalDate.parse("05/12/2025", formatter), "KH-0001", "SVRO-9999"));
         bookingTreeSet.add(new Booking("9", LocalDate.parse("09/09/2025", formatter), LocalDate.parse("27/09/2025", formatter), LocalDate.parse("05/12/2025", formatter), "KH-0001", "SVRO-9999"));
+        bookingTreeSet.add(new Booking("10", LocalDate.parse("09/09/2024", formatter), LocalDate.parse("27/09/2024", formatter), LocalDate.parse("05/12/2024", formatter), "KH-0001", "SVRO-9999"));
+        bookingTreeSet.add(new Booking("11", LocalDate.parse("09/09/2023", formatter), LocalDate.parse("27/09/2023", formatter), LocalDate.parse("05/12/2023", formatter), "KH-0001", "SVRO-9999"));
     }
 
     @Override

@@ -21,9 +21,11 @@ public class FacilityManagementController {
         final int RETURN = 4;
         boolean flag = true;
         FacilityService facilityService = new FacilityService();
+
         while (flag) {
             System.out.println("1 Display list facility\n2 Add new facility\n3 Display list facility maintenance\n4 Return main menu");
             Scanner sc = new Scanner(System.in);
+            BookingService bookingService = new BookingService();
             int option = 0;
             do {
                 System.out.println("Enter option");
@@ -31,10 +33,8 @@ public class FacilityManagementController {
             } while (option == -1);
             switch (option) {
                 case DISPLAY_1:
-                    System.out.println("This is list facilities");
                     LinkedHashMap<Facility, Integer> linkedHashMap = facilityService.findAll();
                     FacilityView.display(linkedHashMap);
-                    BookingService bookingService = new BookingService();
                     bookingService.timeRent(facilityService.findAll());
                     break;
 
@@ -74,6 +74,7 @@ public class FacilityManagementController {
                     System.out.println("This is list facilities maintenance");
                     LinkedHashMap<Facility, Integer> facilityMaintenance = new LinkedHashMap<>();
                     LinkedHashMap<Facility, Integer> facilityList = facilityService.findAll();
+                    bookingService.timeRent(facilityService.findAll());
                     for (Map.Entry<Facility, Integer> entry : facilityList.entrySet()) {
                         if (entry.getValue() == 5) {
                             facilityMaintenance.put(entry.getKey(), entry.getValue());
@@ -86,7 +87,6 @@ public class FacilityManagementController {
                     break;
                 case RETURN:
                     flag = false;
-                    break;
                 default:
             }
         }

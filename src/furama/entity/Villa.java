@@ -42,12 +42,35 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return "\n----Villa----" + "\nID: " + this.getiD() + "\nName: " + this.getName() + "\nArea use: " + this.getAreUse() + " m²"
-                + "\nFee rent: " + this.getFeeRent() + "VND" + "\nMax quantity people: " + this.getMaxQuantityPeople()
-                + "\nType: rent: " + this.getTypeRent() +
-                "\nArea pool: " + areaPool + " m²" +
-                "\nStandard villa: " + standardVilla +
-                "\nNumber floor: " + numberFloor + "\n";
+        return "Villa {" +
+                "ID='" + this.getiD() + '\'' +
+                ", Name='" + this.getName() + '\'' +
+                ", Area Use=" + this.getAreUse() + " m²" +
+                ", Fee Rent=" + this.getFeeRent() + " VND" +
+                ", People=" + this.getMaxQuantityPeople() +
+                ", Type Rent='" + this.getTypeRent() + '\'' +
+                ", Pool Area=" + areaPool + " m²" +
+                ", Standard Villa='" + standardVilla + '\'' +
+                ", Floors=" + numberFloor +
+                '}';
+    }
+
+    public String toTableRow(int timeUsed) {
+        return String.format(
+                "| %-10s | %-15s | %8.2f m² | %11.2f VND | %-6d | %-12s | %-17s | %-6d | %-12s | %-9s | %-15s | %-14s |",
+                this.getiD(),
+                this.getName(),
+                this.getAreUse(),
+                this.getFeeRent(),
+                this.getMaxQuantityPeople(),
+                this.getTypeRent(),
+                "-",
+                numberFloor,
+                "-",
+                areaPool,
+                standardVilla,
+                timeUsed + (timeUsed <= 1 ? " time" : " times")
+        );
     }
 
     public String getInfoToCSV() {

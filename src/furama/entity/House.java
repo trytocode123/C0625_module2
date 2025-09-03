@@ -31,8 +31,36 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "\n----House----" + "\nID: " + this.getiD() + "\nName: " + this.getName() + "\nArea use: " + this.getAreUse() + "m²" + "\nFee rent: " + this.getFeeRent() + "VND" + "\nMax quantity people: " + this.getMaxQuantityPeople() + "\nType: rent: " + this.getTypeRent() + "\nStandard house: " + standardHouse + "\nNumber floor: " + numberFloor + "\n";
+        return "House {" +
+                "ID='" + this.getiD() + '\'' +
+                ", Name='" + this.getName() + '\'' +
+                ", Area Use=" + this.getAreUse() + " m²" +
+                ", Fee Rent=" + this.getFeeRent() + " VND" +
+                ", People=" + this.getMaxQuantityPeople() +
+                ", Type Rent='" + this.getTypeRent() + '\'' +
+                ", Standard House='" + standardHouse + '\'' +
+                ", Floors=" + numberFloor +
+                '}';
     }
+
+
+    public String toTableRow(int timeUsed) {
+        return String.format("| %-10s | %-15s | %8.2f m² | %11.2f VND | %-6d | %-12s | %-17s | %-6d | %-12s | %-9s | %-15s | %-14s |",
+                this.getiD(),
+                this.getName(),
+                this.getAreUse(),
+                this.getFeeRent(),
+                this.getMaxQuantityPeople(),
+                this.getTypeRent(),
+                standardHouse,
+                numberFloor,
+                "-",
+                "-",
+                "-",
+                timeUsed + (timeUsed <= 1 ? " time" : " times"));
+    }
+
+
 
     public String getInfoToCSV() {
         return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + "," + this.getTypeRent() + "," + standardHouse + "," + numberFloor + ",";
