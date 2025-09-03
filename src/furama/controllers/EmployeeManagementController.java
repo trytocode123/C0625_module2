@@ -77,6 +77,8 @@ public class EmployeeManagementController {
 
                 case RETURN:
                     flag = false;
+                    break;
+                default:
             }
         }
     }

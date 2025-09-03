@@ -7,9 +7,9 @@ import java.util.Comparator;
 public class BookingComparator implements Comparator<Booking> {
     @Override
     public int compare(Booking o1, Booking o2) {
-        if (o1.getDateBooking().compareTo(o2.getDateBooking()) == 0) {
-            return o2.getEndDate().compareTo(o1.getEndDate());
+        if (o1.getStartDate().compareTo(o2.getStartDate()) == 0) {
+            return o1.getEndDate().compareTo(o2.getEndDate());
         }
-        return o1.getDateBooking().compareTo(o2.getDateBooking());
+        return o1.getStartDate().compareTo(o2.getStartDate());
     }
 }

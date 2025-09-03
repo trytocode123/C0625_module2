@@ -27,8 +27,9 @@ public class FacilityRepository implements IFacilityRepository {
 
     @Override
     public LinkedHashMap<Facility, Integer> findAll() {
-        LinkedHashMap<Facility, Integer> list = new LinkedHashMap<>();
+
         try {
+            LinkedHashMap<Facility, Integer> list = new LinkedHashMap<>();
             String[] array = null;
             List<String> stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
             for (String str : stringList) {
@@ -36,7 +37,6 @@ public class FacilityRepository implements IFacilityRepository {
                 if (array[0].startsWith("SVVL")) {
                     list.put(new Villa(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]), Integer.parseInt(array[4]), array[5], Float.parseFloat(array[6]), array[7], Integer.parseInt(array[8])), Integer.parseInt(array[9]));
                 } else if ((array[0].startsWith("SVRO"))) {
-                    //String iD, String name, double areUse, double feeRent, int maxQuantityPeople, String typeRent, String freeService
                     list.put(new Room(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]), Integer.parseInt(array[4]), array[5], array[6]), Integer.parseInt(array[7]));
                 } else {
                     list.put(new House(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]), Integer.parseInt(array[4]), array[5], array[6], Integer.parseInt(array[7])), Integer.parseInt(array[8]));
@@ -47,13 +47,10 @@ public class FacilityRepository implements IFacilityRepository {
             System.out.println("Error of reading file");
             return null;
         }
-
     }
 
     @Override
     public boolean add(Facility facility, Integer value) {
-        LinkedHashMap<Facility, Integer> list = new LinkedHashMap<>();
-        list.put(facility, value);
         List<String> stringList = new ArrayList<>();
         stringList.add(facility.getInfoToCSV() + value);
         try {

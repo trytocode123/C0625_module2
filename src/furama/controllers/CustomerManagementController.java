@@ -70,8 +70,6 @@ public class CustomerManagementController {
                 case RETURN:
                     flag = false;
                 default:
-                    System.out.println("Enter option again");
-                    break;
             }
         }
     }

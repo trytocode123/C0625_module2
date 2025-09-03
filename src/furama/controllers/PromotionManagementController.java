@@ -75,6 +75,8 @@ public class PromotionManagementController {
 
                 case RETURN:
                     flag = false;
+                    break;
+                default:
             }
         }
     }

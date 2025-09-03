@@ -70,7 +70,7 @@ public class BookingManagementController {
                     System.out.println("Enter information to create new contracts");
                     contractList = contractService.findAll();
                     if (!bookingQueue.isEmpty()) {
-                        contractList.add(ContractView.inputForContract(bookingQueue.remove().getiD()));
+                        contractList.add(ContractView.inputForContract(bookingQueue.remove().getId()));
                         System.out.println("Add succeed");
                     } else {
                         System.out.println("Not exist any booking to create new contract");
@@ -98,6 +98,8 @@ public class BookingManagementController {
                     break;
                 case EXIT:
                     flag = false;
+                    break;
+                default:
             }
         }
     }

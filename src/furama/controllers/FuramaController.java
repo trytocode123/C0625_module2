@@ -1,4 +1,5 @@
 package furama.controllers;
+
 import furama.util.CheckOption;
 
 import java.util.Scanner;
@@ -45,9 +46,8 @@ public class FuramaController {
                     break;
                 case EXIT:
                     flag = false;
-                default:
-                    System.out.println("Enter option again");
                     break;
+                default:
             }
         }
     }

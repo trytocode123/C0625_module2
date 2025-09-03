@@ -1,6 +1,7 @@
 package furama.controllers;
 
 import furama.entity.Facility;
+import furama.service.BookingService;
 import furama.service.FacilityService;
 import furama.util.CheckOption;
 import furama.view.FacilityView;
@@ -33,6 +34,8 @@ public class FacilityManagementController {
                     System.out.println("This is list facilities");
                     LinkedHashMap<Facility, Integer> linkedHashMap = facilityService.findAll();
                     FacilityView.display(linkedHashMap);
+                    BookingService bookingService = new BookingService();
+                    bookingService.timeRent(facilityService.findAll());
                     break;
 
                 case ADD:
@@ -83,6 +86,8 @@ public class FacilityManagementController {
                     break;
                 case RETURN:
                     flag = false;
+                    break;
+                default:
             }
         }
     }

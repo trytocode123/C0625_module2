@@ -35,6 +35,6 @@ public class House extends Facility {
     }
 
     public String getInfoToCSV() {
-        return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + "," + this.getTypeRent() + "," + numberFloor + ",";
+        return this.getiD() + "," + this.getName() + "," + this.getAreUse() + "," + this.getFeeRent() + "," + this.getMaxQuantityPeople() + "," + this.getTypeRent() + "," + standardHouse + "," + numberFloor + ",";
     }
 }
