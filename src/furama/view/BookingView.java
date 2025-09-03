@@ -31,7 +31,6 @@ public class BookingView {
             }
         } while (true);
 
-
         LocalDate startDate;
         do {
             System.out.println("Enter start date");
