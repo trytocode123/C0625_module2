@@ -60,7 +60,8 @@ public class BookingManagementController {
                     System.out.println("Booking succeed");
                     break;
                 case DISPLAY_BOOKING:
-                    System.out.println("List booking");System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
+                    System.out.println("List booking");
+                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     System.out.println("| Id    | Date booking | Start date   | End date     | CustomerId | ServiceID  |");
                     System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     TreeSet<Booking> bookingTreeSet = bookingService.findAll();
