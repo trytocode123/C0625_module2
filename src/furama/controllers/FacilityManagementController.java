@@ -3,6 +3,7 @@ package furama.controllers;
 import furama.entity.Facility;
 import furama.service.BookingService;
 import furama.service.FacilityService;
+import furama.service.IFacilityService;
 import furama.util.CheckOption;
 import furama.view.FacilityView;
 import furama.view.HouseView;
@@ -20,7 +21,7 @@ public class FacilityManagementController {
         final int DISPLAY_2 = 3;
         final int RETURN = 4;
         boolean flag = true;
-        FacilityService facilityService = new FacilityService();
+        IFacilityService facilityService = new FacilityService();
 
         while (flag) {
             System.out.println("1 Display list facility\n2 Add new facility\n3 Display list facility maintenance\n4 Return main menu");

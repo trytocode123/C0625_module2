@@ -1,6 +1,7 @@
 package furama.controllers;
 
 import furama.entity.Booking;
+import furama.service.IPromotionService;
 import furama.service.PromotionService;
 import furama.util.CheckOption;
 
@@ -14,7 +15,7 @@ public class PromotionManagementController {
         final int DISPLAY_LIST_CUSTOMERS_GET_VOUCHER = 2;
         final int RETURN = 3;
         boolean flag = true;
-        PromotionService promotionService = new PromotionService();
+        IPromotionService promotionService = new PromotionService();
         while (flag) {
             System.out.println("1. Display list customers use service\n2. Display list customers get voucher\n3. Return main menu");
             Scanner sc = new Scanner(System.in);

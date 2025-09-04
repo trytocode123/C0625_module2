@@ -20,6 +20,7 @@ public class BookingService implements IBookingService {
         return bookingRepository.findAll();
     }
 
+    @Override
     public void timeRent(LinkedHashMap<Facility, Integer> linkedHashMap) {
         bookingRepository.timeRent(linkedHashMap);
     }

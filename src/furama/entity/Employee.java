@@ -45,7 +45,7 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee: " + "\nID: " + this.getiD() + "\nFull name: " + this.getFullName() + "\nDate of birth: " + this.getDate().format(formatter) + "\nGender: " + (this.isGender() ? "Male" : "Female") + "\nIdentify: " + this.getIdentifyNumber() + "\nPhone number: " + this.getPhoneNumber() + "\nEmail: " + this.getEmail() + " \nLevel: " + this.getLevel() + "\nPosition: " + this.getPosition() + "\nSalary: " + this.getSalary();
+        return "Employee: " + "\nID: " + this.getiD() + "\nFull name: " + this.getFullName() + "\nDate of birth: " + this.getDate().format(formatter) + "\nGender: " + (this.isGender() ? "Male" : "Female") + "\nIdentify: " + this.getIdentifyNumber() + "\nPhone number: " + this.getPhoneNumber() + "\nEmail: " + this.getEmail() + " \nLevel: " + this.getLevel() + "\nPosition: " + this.getPosition() + "\nSalary: " + this.getSalary() + "\n";
     }
 
     public String getInfoToCSV() {

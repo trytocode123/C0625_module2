@@ -4,10 +4,7 @@ import furama.entity.Booking;
 import furama.entity.Contract;
 import furama.entity.Customer;
 import furama.entity.Facility;
-import furama.service.BookingService;
-import furama.service.ContractService;
-import furama.service.CustomerService;
-import furama.service.FacilityService;
+import furama.service.*;
 import furama.util.CheckOption;
 import furama.view.BookingView;
 import furama.view.ContractView;
@@ -23,7 +20,7 @@ public class BookingManagementController {
         final int EDIT_CONTRACTS = 5;
         final int EXIT = 6;
         boolean flag = true;
-        BookingService bookingService = new BookingService();
+        IBookingService bookingService = new BookingService();
         ContractService contractService = new ContractService();
         Queue<Booking> bookingQueue = new ArrayDeque<>(bookingService.findAll());
         List<Contract> contractList = null;
@@ -60,8 +57,7 @@ public class BookingManagementController {
                     System.out.println("Booking succeed");
                     break;
                 case DISPLAY_BOOKING:
-                    System.out.println("List booking");
-                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
+                    System.out.println("List booking");System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     System.out.println("| Id    | Date booking | Start date   | End date     | CustomerId | ServiceID  |");
                     System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
                     TreeSet<Booking> bookingTreeSet = bookingService.findAll();
