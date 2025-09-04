@@ -14,7 +14,6 @@ public class PromotionService implements IPromotionService {
         return promotionRepository.findAllByYear(year);
     }
 
-
     public Stack<Booking> findAllVoucher() {
         return promotionRepository.findAllVoucher();
     }
