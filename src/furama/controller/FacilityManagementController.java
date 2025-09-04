@@ -1,4 +1,4 @@
-package furama.controllers;
+package furama.controller;
 
 import furama.entity.Facility;
 import furama.service.BookingService;
