@@ -77,7 +77,7 @@ public class FacilityManagementController {
                     LinkedHashMap<Facility, Integer> facilityList = facilityService.findAll();
                     bookingService.timeRent(facilityService.findAll());
                     for (Map.Entry<Facility, Integer> entry : facilityList.entrySet()) {
-                        if (entry.getValue() == 5) {
+                        if (entry.getValue() >= 5) {
                             facilityMaintenance.put(entry.getKey(), entry.getValue());
                         }
                     }
