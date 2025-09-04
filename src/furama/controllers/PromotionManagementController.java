@@ -53,12 +53,7 @@ public class PromotionManagementController {
                         System.out.println("Enter quantity of voucher 50%");
                         voucher50 = Integer.parseInt(sc.nextLine());
                         if (((voucher10 + voucher20 + voucher50) == stackSize) && voucher10 > 0 && voucher20 > 0 && voucher50 > 0) {
-
                             System.out.println("| ID    | Start Date   | End Date     | Contract Day | CustomerID | FacilityID | Voucher     ");
-
-
-
-
                             while (!bookingStack.isEmpty()) {
                                 if (voucher10 > 0) {
                                     System.out.println(bookingStack.pop() + " Voucher 10%");
