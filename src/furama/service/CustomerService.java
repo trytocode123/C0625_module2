@@ -15,6 +15,12 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public boolean add(Customer customer) {
+        List<Customer> customers = customerRepository.findAll();
+        for (Customer customerEle : customers) {
+            if (customerEle.getiD().equals(customer.getiD())) {
+                return false;
+            }
+        }
         return customerRepository.add(customer);
     }
 

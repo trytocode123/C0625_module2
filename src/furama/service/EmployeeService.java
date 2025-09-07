@@ -1,5 +1,6 @@
 package furama.service;
 
+import furama.entity.Customer;
 import furama.entity.Employee;
 
 import furama.repository.EmployeeRepository;
@@ -16,6 +17,13 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public boolean add(Employee employee) {
+
+        List<Employee> employees = employeeRepository.findAll();
+        for (Employee employeeEle : employees) {
+            if (employeeEle.getiD().equals(employee.getiD())) {
+                return false;
+            }
+        }
         return employeeRepository.add(employee);
     }
 

@@ -31,7 +31,7 @@ public class EmployeeView {
                 RegexInputPeople.checkId(iD, "NV");
                 break;
             } catch (UserException e) {
-                System.err.println("FormatId");
+                System.err.println(e.getMessage());
             }
         } while (true);
         String fullName = null;
@@ -65,8 +65,26 @@ public class EmployeeView {
                 System.err.println(e.getMessage() + " dd/MM/yyyy");
             }
         }
-        System.out.println("Enter gender");
-        boolean gender = Boolean.parseBoolean(sc.nextLine());
+
+        int optionGender = Integer.parseInt(sc.nextLine());
+        boolean gender = false;
+        final int MALE = 1;
+        final int FEMALE = 2;
+        boolean flagOptionGender = true;
+        while (flagOptionGender) {
+            System.out.println("Enter gender\n1 Male\n2 Female");
+            switch (optionGender) {
+                case MALE:
+                    gender = true;
+                    flagOptionGender = false;
+                    break;
+                case FEMALE:
+                    flagOptionGender = false;
+                    break;
+                default:
+                    System.err.println("Select gender again");
+            }
+        }
         String identify = null;
         do {
             System.out.println("Enter identify");
@@ -92,7 +110,7 @@ public class EmployeeView {
 
         System.out.println("Enter email");
         String email = sc.nextLine();
-        System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
+
         String level = null;
         int option = Integer.parseInt(sc.nextLine());
         final int TRUNG_CAP = 1;
@@ -101,6 +119,7 @@ public class EmployeeView {
         final int SAU_DAI_HOC = 4;
         boolean flagType = true;
         while (flagType) {
+            System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
             switch (option) {
                 case TRUNG_CAP:
                     level = "Trung cấp";
@@ -162,14 +181,23 @@ public class EmployeeView {
                 System.err.println(e.getMessage() + " dd/MM/yyyy");
             }
         }
-        System.out.println("Enter gender (true/false)");
-        boolean gender;
-        while (true) {
-            try {
-                gender = Boolean.parseBoolean(sc.nextLine());
-                break;
-            } catch (InputMismatchException e) {
-                System.err.println("GenderNotValid");
+        System.out.println("Enter gender\n1 Male\n2 Female");
+        int optionGender = Integer.parseInt(sc.nextLine());
+        boolean gender = false;
+        final int MALE = 1;
+        final int FEMALE = 2;
+        boolean flagOptionGender = true;
+        while (flagOptionGender) {
+            switch (optionGender) {
+                case MALE:
+                    gender = true;
+                    flagOptionGender = false;
+                    break;
+                case FEMALE:
+                    flagOptionGender = false;
+                    break;
+                default:
+                    System.err.println("Select gender again");
             }
         }
 
@@ -198,8 +226,36 @@ public class EmployeeView {
 
         System.out.println("Enter email");
         String email = sc.nextLine();
-        System.out.println("Enter level");
-        String level = sc.nextLine();
+        System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
+        String level = null;
+        int option = Integer.parseInt(sc.nextLine());
+        final int TRUNG_CAP = 1;
+        final int CAO_DANG = 2;
+        final int DAI_HOC = 3;
+        final int SAU_DAI_HOC = 4;
+        boolean flagType = true;
+        while (flagType) {
+            switch (option) {
+                case TRUNG_CAP:
+                    level = "Trung cấp";
+                    flagType = false;
+                    break;
+                case CAO_DANG:
+                    level = "Cao đẳng";
+                    flagType = false;
+                    break;
+                case DAI_HOC:
+                    level = "Đại học";
+                    flagType = false;
+                    break;
+                case SAU_DAI_HOC:
+                    level = "Sau đại học";
+                    flagType = false;
+                    break;
+                default:
+                    System.err.println("Not valid, enter again");
+            }
+        }
         System.out.println("Enter position");
         String position = sc.nextLine();
         System.out.println("Enter salary");
@@ -220,8 +276,9 @@ public class EmployeeView {
     public static String inputForID() {
         String iDEmp = null;
         while (true) {
+            System.out.println("Enter id (NV-YYYY)");
+            iDEmp = sc.nextLine();
             try {
-                iDEmp = sc.nextLine();
                 RegexInputPeople.checkId(iDEmp, "NV");
                 break;
             } catch (UserException e) {

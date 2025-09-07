@@ -37,9 +37,9 @@ public class CustomerManagementController {
                     break;
                 case ADD:
                     if (customerService.add(CustomerView.inputForCustomer())) {
-                        System.out.println("Added new customer");
+                        System.out.println("Add succeed");
                     } else {
-                        System.err.println("Add fail");
+                        System.err.println("Existed");
                     }
                     break;
                 case EDIT:
@@ -70,7 +70,6 @@ public class CustomerManagementController {
                     }
                     break;
                 case DELETE:
-                    System.out.println("Enter id customer to delete (KH-YYYY)");
                     if (customerService.delete(CustomerView.inputForID())) {
                         System.out.println("Delete succeed");
                     } else {
@@ -78,7 +77,6 @@ public class CustomerManagementController {
                     }
                     break;
                 case FIND:
-                    System.out.println("Enter id customer to find (KH-YYYY)");
                     int i = customerService.isValid(CustomerView.inputForID());
                     if (i != -1) {
                         System.out.println(customerService.findAll().get(i));

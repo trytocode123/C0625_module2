@@ -45,7 +45,7 @@ public class EmployeeManagementController {
                     if (employeeService.add(EmployeeView.inputForEmployee())) {
                         System.out.println("Added new customer");
                     } else {
-                        System.err.println("Add fail");
+                        System.err.println("Existed");
                     }
                     break;
 
@@ -77,7 +77,6 @@ public class EmployeeManagementController {
                     }
                     break;
                 case DELETE:
-                    System.out.println("Enter id employee to delete (NV-YYYY)");
                     if (employeeService.delete(EmployeeView.inputForID())) {
                         System.out.println("Delete succeed");
                     } else {
@@ -85,7 +84,6 @@ public class EmployeeManagementController {
                     }
                     break;
                 case FIND:
-                    System.out.println("Enter id employee to find (NV-YYYY)");
                     int i = employeeService.isValid(EmployeeView.inputForID());
                     if (i != -1) {
                         System.out.println(employeeService.findAll().get(i));
