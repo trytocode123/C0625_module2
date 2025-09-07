@@ -18,11 +18,13 @@ public class CustomerManagementController {
         final int DISPLAY = 1;
         final int ADD = 2;
         final int EDIT = 3;
-        final int RETURN = 4;
+        final int DELETE = 4;
+        final int FIND = 5;
+        final int RETURN = 6;
         boolean flag = true;
         int option = -1;
         while (flag) {
-            System.out.println("1 Display list customers\n2 Add new customer\n3 Edit customer\n4 Return main menu");
+            System.out.println("1 Display list customers\n2 Add new customer\n3 Edit customer\n4 Delete customer\n5 Find customer\n6 Return main menu");
             do {
                 System.out.println("Enter option");
                 option = CheckOption.checkOption(option, sc);
@@ -37,7 +39,7 @@ public class CustomerManagementController {
                     if (customerService.add(CustomerView.inputForCustomer())) {
                         System.out.println("Added new customer");
                     } else {
-                        System.out.println("Add fail");
+                        System.err.println("Add fail");
                     }
                     break;
                 case EDIT:
@@ -49,7 +51,7 @@ public class CustomerManagementController {
                             RegexInputPeople.checkId(iDEdit, "KH");
                             break;
                         } catch (UserException e) {
-                            System.out.println(e.getMessage());
+                            System.err.println(e.getMessage());
                         }
                     }
 
@@ -64,9 +66,25 @@ public class CustomerManagementController {
                             flagUpdate = false;
                         }
                     } else {
-                        System.out.println("Not found to update");
+                        System.err.println("Not found to update");
                     }
                     break;
+                case DELETE:
+                    System.out.println("Enter id customer to delete");
+                    if (customerService.delete(CustomerView.inputForID())) {
+                        System.out.println("Delete succeed");
+                    } else {
+                        System.err.println("Not found to delete");
+                    }
+                    break;
+                case FIND:
+                    System.out.println("Enter id customer to find");
+                    int i = customerService.isValid(CustomerView.inputForID());
+                    if (i != -1) {
+                        System.out.println(customerService.findAll().get(i));
+                    } else {
+                        System.err.println("Not found");
+                    }
                 case RETURN:
                     flag = false;
                 default:

@@ -8,4 +8,8 @@ public interface IService<T> {
     boolean add(T customer);
 
     boolean update(int i, T customer);
+
+    boolean delete(String iDCus);
+
+    int isValid(String IdCus);
 }

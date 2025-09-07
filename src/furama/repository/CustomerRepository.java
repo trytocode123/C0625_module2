@@ -55,4 +55,17 @@ public class CustomerRepository implements ICustomerRepository {
             return false;
         }
     }
+
+    @Override
+    public boolean delete(int i) {
+        try {
+            List<String> stringList = ReadFileAndWriteFile.readFileCSV(pathFile);
+            stringList.remove(i);
+            ReadFileAndWriteFile.writeFileCSV(pathFile, stringList, false);
+            return true;
+        } catch (IOException e) {
+            System.out.println("Error of reading file");
+            return false;
+        }
+    }
 }

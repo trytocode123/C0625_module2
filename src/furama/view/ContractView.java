@@ -14,7 +14,7 @@ public class ContractView {
         }
     }
 
-    public static Contract inputForContract(String iDBooking) {
+    public static Contract inputForContract(int iDBooking) {
         System.out.println("Enter deposit");
         int deposit = Integer.parseInt(sc.nextLine());
         System.out.println("Enter total payment");
@@ -22,7 +22,7 @@ public class ContractView {
         return new Contract(iDBooking, deposit, totalPayment);
     }
 
-    public static Contract inputForEditContract(String iDBooking) {
+    public static Contract inputForEditContract(int iDBooking) {
         System.out.println("Enter deposit");
         int deposit = Integer.parseInt(sc.nextLine());
         System.out.println("Enter total payment");

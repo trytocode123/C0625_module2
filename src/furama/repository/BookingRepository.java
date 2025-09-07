@@ -12,18 +12,7 @@ import java.util.*;
 public class BookingRepository implements IBookingRepository {
     final static TreeSet<Booking> bookingTreeSet = new TreeSet<>(new BookingComparator());
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-    static {
-        bookingTreeSet.add(new Booking("1", LocalDate.parse("12/12/2025", formatter), LocalDate.parse("13/12/2025", formatter), LocalDate.parse("15/12/2025", formatter), "KH-4444", "SVVL-0010"));
-        bookingTreeSet.add(new Booking("2", LocalDate.parse("14/12/2025", formatter), LocalDate.parse("15/12/2025", formatter), LocalDate.parse("17/12/2025", formatter), "KH-2112", "SVRO-0001"));
-        bookingTreeSet.add(new Booking("3", LocalDate.parse("11/12/2025", formatter), LocalDate.parse("12/12/2025", formatter), LocalDate.parse("30/12/2025", formatter), "KH-5412", "SVVL-0010"));
-        bookingTreeSet.add(new Booking("4", LocalDate.parse("02/09/2025", formatter), LocalDate.parse("03/09/2025", formatter), LocalDate.parse("29/12/2025", formatter), "KH-2424", "SVHO-0001"));
-        bookingTreeSet.add(new Booking("5", LocalDate.parse("10/09/2025", formatter), LocalDate.parse("11/09/2025", formatter), LocalDate.parse("02/12/2025", formatter), "KH-2400", "SVHO-0003"));
-        bookingTreeSet.add(new Booking("6", LocalDate.parse("17/09/2025", formatter), LocalDate.parse("18/09/2025", formatter), LocalDate.parse("03/12/2025", formatter), "KH-3113", "SVRO-0002"));
-        bookingTreeSet.add(new Booking("7", LocalDate.parse("11/09/2025", formatter), LocalDate.parse("13/09/2025", formatter), LocalDate.parse("04/12/2025", formatter), "KH-4211", "SVHO-0003"));
-        bookingTreeSet.add(new Booking("8", LocalDate.parse("09/09/2025", formatter), LocalDate.parse("10/09/2025", formatter), LocalDate.parse("05/12/2025", formatter), "KH-0001", "SVRO-9999"));
-        bookingTreeSet.add(new Booking("9", LocalDate.parse("09/09/2025", formatter), LocalDate.parse("27/09/2025", formatter), LocalDate.parse("05/12/2025", formatter), "KH-0001", "SVRO-9999"));
-    }
+    private final static String filePath = "src/furama/data/booking.csv";
 
     @Override
     public boolean add(Booking booking) {
@@ -32,6 +21,17 @@ public class BookingRepository implements IBookingRepository {
 
     @Override
     public TreeSet<Booking> findAll() {
+        try {
+            List<String> strings = ReadFileAndWriteFile.readFileCSV(filePath);
+            String[] array = null;
+            for (String str : strings) {
+                array = str.split(",");
+                bookingTreeSet.add(new Booking(LocalDate.parse(array[1], formatter),
+                        LocalDate.parse(array[2], formatter), LocalDate.parse(array[3], formatter), array[4], array[5]));
+            }
+        } catch (IOException e) {
+            System.err.println("Error of reading file");
+        }
         return bookingTreeSet;
     }
 

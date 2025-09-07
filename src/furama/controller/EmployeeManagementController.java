@@ -19,11 +19,13 @@ public class EmployeeManagementController {
         final int DISPLAY = 1;
         final int ADD = 2;
         final int EDIT = 3;
-        final int RETURN = 4;
+        final int DELETE = 4;
+        final int FIND = 5;
+        final int RETURN = 6;
         boolean flag = true;
 
         while (flag) {
-            System.out.println("1 Display list employees\n2 Add new employee\n3 Edit employee\n4 Return main menu");
+            System.out.println("1 Display list customers\n2 Add new customer\n3 Edit customer\n4 Delete customer\n5 Find customer\n6 Return main menu");
             Scanner sc = new Scanner(System.in);
             int option = 0;
             do {
@@ -43,7 +45,7 @@ public class EmployeeManagementController {
                     if (employeeService.add(EmployeeView.inputForEmployee())) {
                         System.out.println("Added new customer");
                     } else {
-                        System.out.println("Add fail");
+                        System.err.println("Add fail");
                     }
                     break;
 
@@ -56,7 +58,7 @@ public class EmployeeManagementController {
                             RegexInputPeople.checkId(iDEdit, "NV");
                             break;
                         } catch (UserException e) {
-                            System.out.println(e.getMessage());
+                            System.err.println(e.getMessage());
                         }
                     }
 
@@ -71,10 +73,26 @@ public class EmployeeManagementController {
                             flagUpdate = false;
                         }
                     } else {
-                        System.out.println("Not found to update");
+                        System.err.println("Not found to update");
                     }
                     break;
-
+                case DELETE:
+                    System.out.println("Enter id customer to delete");
+                    if (employeeService.delete(EmployeeView.inputForID())) {
+                        System.out.println("Delete succeed");
+                    } else {
+                        System.err.println("Not found to delete");
+                    }
+                    break;
+                case FIND:
+                    System.out.println("Enter id customer to find");
+                    int i = employeeService.isValid(EmployeeView.inputForID());
+                    if (i != -1) {
+                        System.out.println(employeeService.findAll().get(i));
+                    } else {
+                        System.err.println("Not found");
+                    }
+                    break;
                 case RETURN:
                     flag = false;
                 default:

@@ -8,4 +8,6 @@ public interface IRepository<T> {
     boolean add(T object);
 
     boolean update(int i, T object);
+
+    boolean delete(int i);
 }

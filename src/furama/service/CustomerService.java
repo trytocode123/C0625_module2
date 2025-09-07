@@ -27,6 +27,15 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public boolean delete(String iDCus) {
+        int i = isValid(iDCus);
+        if (i != -1) {
+            return customerRepository.delete(i);
+        }
+        return false;
+    }
+
+    @Override
     public int isValid(String iD) {
         List<Customer> customerList = findAll();
         for (int i = 0; i < customerList.size(); i++) {

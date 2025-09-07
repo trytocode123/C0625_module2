@@ -17,11 +17,21 @@ public class ContractService implements IContractService {
         return contractRepository.findAll();
     }
 
-    public int isValid(String iD) {
+    public int isValid(int iD) {
         return contractRepository.isValid(iD);
     }
 
     public boolean update(int index, Contract contract) {
         return contractRepository.update(index, contract);
+    }
+
+    @Override
+    public boolean delete(String iDCus) {
+        return false;
+    }
+
+    @Override
+    public int isValid(String IdCus) {
+        return 0;
     }
 }

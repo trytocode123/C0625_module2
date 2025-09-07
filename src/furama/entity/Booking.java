@@ -6,7 +6,8 @@ import java.util.Objects;
 
 public class Booking {
 
-    private String iD;
+    private int iD;
+    private static int count = 1;
     private LocalDate dateBooking;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -17,8 +18,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String iD, LocalDate dateBooking, LocalDate startDate, LocalDate endDate, String iDCustomer, String iDService) {
-        this.iD = iD;
+    public Booking(LocalDate dateBooking, LocalDate startDate, LocalDate endDate, String iDCustomer, String iDService) {
+        this.iD = generateAutoId();
         this.dateBooking = dateBooking;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -26,11 +27,11 @@ public class Booking {
         this.iDService = iDService;
     }
 
-    public String getId() {
+    public int getId() {
         return iD;
     }
 
-    public void setId(String iD) {
+    public void setId(int iD) {
         this.iD = iD;
     }
 
@@ -76,7 +77,7 @@ public class Booking {
 
     @Override
     public String toString() {
-      return   String.format("| %-5s | %-12s | %-12s | %-12s | %-10s | %-10s |",
+        return String.format("| %-10s | %-12s | %-12s | %-13s | %-13s | %-10s |",
                 iD,
                 dateBooking.format(formatter),
                 startDate.format(formatter),
@@ -92,6 +93,10 @@ public class Booking {
 
     @Override
     public boolean equals(Object obj) {
-        return ((Booking) obj).getId().equals(this.getId());
+        return ((Booking) obj).getId() == (this.getId());
+    }
+
+    public int generateAutoId() {
+        return count++;
     }
 }

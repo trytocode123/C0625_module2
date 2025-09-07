@@ -1,13 +1,16 @@
 package furama.repository;
 
+import furama.entity.Booking;
 import furama.entity.Contract;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class ContractRepository implements IContractRepository {
     List<Contract> contracts = new ArrayList<>();
+    TreeSet<Booking> bookings = new TreeSet<>(new BookingComparator());
 
     @Override
     public boolean add(Contract contract) {
@@ -21,13 +24,18 @@ public class ContractRepository implements IContractRepository {
         return true;
     }
 
+    @Override
+    public boolean delete(int i) {
+        return false;
+    }
+
     public List<Contract> findAll() {
         return contracts;
     }
 
-    public int isValid(String iD) {
+    public int isValid(int iD) {
         for (int i = 0; i < contracts.size(); i++) {
-            if (contracts.get(i).getID().equals(iD)) {
+            if (contracts.get(i).getID() == (iD)) {
                 return i;
             }
         }

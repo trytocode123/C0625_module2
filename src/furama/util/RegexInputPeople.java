@@ -30,8 +30,8 @@ public class RegexInputPeople {
         }
     }
 
-    public static void checkSalary(int salary) throws UserException{
-        if(salary <= 0){
+    public static void checkSalary(int salary) throws UserException {
+        if (salary <= 0) {
             throw new UserException("SalaryNotValid");
         }
     }

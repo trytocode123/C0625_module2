@@ -18,8 +18,6 @@ public class BookingView {
     public static Booking inputForBooking() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter id");
-        String iD = sc.nextLine();
         LocalDate dateBooking;
         do {
             System.out.println("Enter date");
@@ -27,7 +25,7 @@ public class BookingView {
                 dateBooking = LocalDate.parse(sc.nextLine(), dateTimeFormatter);
                 break;
             } catch (DateTimeException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         } while (true);
 
@@ -38,7 +36,7 @@ public class BookingView {
                 startDate = LocalDate.parse(sc.nextLine(), dateTimeFormatter);
                 break;
             } catch (DateTimeException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         } while (true);
 
@@ -49,13 +47,13 @@ public class BookingView {
                 endDate = LocalDate.parse(sc.nextLine(), dateTimeFormatter);
                 break;
             } catch (DateTimeException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         } while (true);
         System.out.println("Enter id customer");
         String iDCustomer = sc.nextLine();
         System.out.println("Enter id service");
         String iDService = sc.nextLine();
-        return new Booking(iD, dateBooking, startDate, endDate, iDCustomer, iDService);
+        return new Booking(dateBooking, startDate, endDate, iDCustomer, iDService);
     }
 }

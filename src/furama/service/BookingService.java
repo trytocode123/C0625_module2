@@ -12,6 +12,12 @@ public class BookingService implements IBookingService {
 
     @Override
     public boolean add(Booking booking) {
+        TreeSet<Booking> bookings = bookingRepository.findAll();
+        for (Booking bookingEle : bookings) {
+//            if (bookingEle.getId() == booking.getId() || ) {
+//                return false;
+//            }
+        }
         return bookingRepository.add(booking);
     }
 

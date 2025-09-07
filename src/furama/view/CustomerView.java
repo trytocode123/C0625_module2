@@ -26,13 +26,13 @@ public class CustomerView {
         String iD = null;
         boolean flag = true;
         while (flag) {
-            System.out.println("Enter id");
+            System.out.println("Enter id (KH-YYYY)");
             iD = sc.nextLine();
             try {
                 RegexInputPeople.checkId(iD, "KH");
                 flag = false;
             } catch (UserException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
         return iD;
@@ -48,7 +48,7 @@ public class CustomerView {
                 RegexInputPeople.checkFullName(fullName);
                 flag = false;
             } catch (UserException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
         return fullName;
@@ -64,7 +64,7 @@ public class CustomerView {
                 RegexInputPeople.checkPhoneNumber(phoneNumber);
                 flag = false;
             } catch (UserException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
         return phoneNumber;
@@ -80,7 +80,7 @@ public class CustomerView {
                 RegexInputPeople.checkIdentify(identify);
                 flag = false;
             } catch (UserException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
         return identify;
@@ -96,28 +96,80 @@ public class CustomerView {
             try {
                 int ageEnough = 0;
                 do {
-                    System.out.println("Enter date of birth");
+                    System.out.println("Enter date of birth (dd/MM/yyyy)");
                     DOB = LocalDate.parse(sc.nextLine(), formatter);
                     Period age = Period.between(DOB, LocalDate.now());
                     ageEnough = age.getYears();
                     if (ageEnough < 18) {
-                        System.out.println("AgeNotEnough");
+                        System.err.println("AgeNotEnough");
                     }
                 } while (ageEnough < 18);
                 flagDOB = false;
             } catch (DateTimeException e) {
-                System.out.println("Enter date of birth");
-                System.out.println(e.getMessage() + " dd/MM/yyyy");
+                System.err.println(e.getMessage() + " dd/MM/yyyy");
             }
         }
-        System.out.println("Enter gender");
-        boolean gender = Boolean.parseBoolean(sc.nextLine());
+        System.out.println("Enter gender\n1 Male\n2 Female");
+        int optionGender = Integer.parseInt(sc.nextLine());
+        boolean gender = false;
+        final int MALE = 1;
+        final int FEMALE = 2;
+        boolean flagOptionGender = true;
+        while (flagOptionGender) {
+            switch (optionGender) {
+                case MALE:
+                    gender = true;
+                    flagOptionGender = false;
+                    break;
+                case FEMALE:
+                    flagOptionGender = false;
+                    break;
+                default:
+                    System.err.println("Select gender again");
+            }
+        }
+
+
         String identify = identify();
         String phoneNumber = phoneNumber();
         System.out.println("Enter email");
         String email = sc.nextLine();
-        System.out.println("Enter type customer");
-        String type = sc.nextLine();
+        System.out.println("Enter type customer\n1 Diamond\n2 Platinum\n3 Gold\n4 Silver\n5 Member");
+        String type = null;
+        int option = Integer.parseInt(sc.nextLine());
+        final int DIAMOND = 1;
+        final int PLATINUM = 2;
+        final int GOLD = 3;
+        final int SILVER = 4;
+        final int MEMBER = 5;
+        boolean flagType = true;
+        while (flagType) {
+            switch (option) {
+                case DIAMOND:
+                    type = "Diamond";
+                    flagType = false;
+                    break;
+                case PLATINUM:
+                    type = "Platinum";
+                    flagType = false;
+                    break;
+                case GOLD:
+                    type = "Gold";
+                    flagType = false;
+                    break;
+                case SILVER:
+                    type = "Silver";
+                    flagType = false;
+                    break;
+                case MEMBER:
+                    type = "Member";
+                    flagType = false;
+                    break;
+                default:
+                    System.err.println("Not valid, enter again");
+            }
+        }
+
         System.out.println("Enter address");
         String address = sc.nextLine();
         return new Customer(iD, fullName, DOB, gender, identify, phoneNumber, email, type, address);
@@ -138,7 +190,7 @@ public class CustomerView {
                     Period age = Period.between(DOB, LocalDate.now());
                     ageEnough = age.getYears();
                     if (ageEnough < 18) {
-                        System.out.println("AgeNotEnough");
+                        System.err.println("AgeNotEnough");
                     }
                 } while (ageEnough < 18);
                 flagDOB = false;
@@ -161,6 +213,16 @@ public class CustomerView {
     }
 
     public static String inputForID() {
-        return sc.nextLine();
+        String iD = null;
+        while (true) {
+            iD = sc.nextLine();
+            try {
+                RegexInputPeople.checkId(iD, "KH");
+                break;
+            } catch (UserException e) {
+                System.err.println("Format Id");
+            }
+        }
+        return iD;
     }
 }

@@ -3,14 +3,14 @@ package furama.entity;
 public class Contract {
     private static int count = 1;
     private int numberContract;
-    private String iD;
+    private int iD;
     private double advancePayment;
     private double totalPayment;
 
     public Contract() {
     }
 
-    public Contract(String iD, double advancePayment, double totalPayment) {
+    public Contract(int iD, double advancePayment, double totalPayment) {
         numberContract = generateId();
         this.iD = iD;
         this.advancePayment = advancePayment;
@@ -21,11 +21,11 @@ public class Contract {
         return numberContract;
     }
 
-    public String getID() {
+    public int getID() {
         return iD;
     }
 
-    public void setID(String iD) {
+    public void setID(int iD) {
         this.iD = iD;
     }
 

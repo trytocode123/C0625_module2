@@ -57,20 +57,19 @@ public class BookingManagementController {
                     System.out.println("Booking succeed");
                     break;
                 case DISPLAY_BOOKING:
-                    System.out.println("List booking");System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
-                    System.out.println("| Id    | Date booking | Start date   | End date     | CustomerId | ServiceID  |");
-                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
-                    TreeSet<Booking> bookingTreeSet = bookingService.findAll();
-                    for (Booking booking : bookingTreeSet) {
+                    System.out.println("+------------+--------------+--------------+---------------+---------------+------------+");
+                    System.out.println("| Mã booking | Ngày booking | Ngày bắt đầu | Ngày kết thúc | Mã khách hàng | Mã dịch vụ |");
+                    System.out.println("+------------+--------------+--------------+---------------+---------------+------------+");
+                    for (Booking booking : bookingQueue) {
                         System.out.println(booking);
                     }
-                    System.out.println("+-------+--------------+--------------+--------------+------------+------------+");
+                    System.out.println("+------------+--------------+--------------+---------------+---------------+------------+");
                     break;
                 case CREATE:
                     System.out.println("Enter information to create new contracts");
                     contractList = contractService.findAll();
                     if (!bookingQueue.isEmpty()) {
-                        contractList.add(ContractView.inputForContract(bookingQueue.remove().getId()));
+                        contractList.add(ContractView.inputForContract(bookingQueue.poll().getId()));
                         System.out.println("Add succeed");
                     } else {
                         System.out.println("Not exist any booking to create new contract");
@@ -86,7 +85,7 @@ public class BookingManagementController {
                     break;
                 case EDIT_CONTRACTS:
                     System.out.println("Enter information to edit new contracts");
-                    String iD = sc.nextLine();
+                    int iD = Integer.parseInt(sc.nextLine());
                     int i = contractService.isValid(iD);
                     contractList = contractService.findAll();
                     if (i == -1) {
