@@ -28,13 +28,14 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public boolean delete(String iDCus) {
-        int i = isValid(iDCus);
+    public boolean delete(String iDEmp) {
+        int i = isValid(iDEmp);
         if (i != -1) {
             return employeeRepository.delete(i);
         }
         return false;
     }
+
 
     @Override
     public int isValid(String iD) {

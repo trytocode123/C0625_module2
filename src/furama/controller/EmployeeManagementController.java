@@ -23,11 +23,11 @@ public class EmployeeManagementController {
         final int FIND = 5;
         final int RETURN = 6;
         boolean flag = true;
-
+        int option = 0;
         while (flag) {
             System.out.println("1 Display list customers\n2 Add new customer\n3 Edit customer\n4 Delete customer\n5 Find customer\n6 Return main menu");
             Scanner sc = new Scanner(System.in);
-            int option = 0;
+
             do {
                 System.out.println("Enter option");
                 option = CheckOption.checkOption(option, sc);
@@ -77,7 +77,7 @@ public class EmployeeManagementController {
                     }
                     break;
                 case DELETE:
-                    System.out.println("Enter id customer to delete");
+                    System.out.println("Enter id employee to delete (NV-YYYY)");
                     if (employeeService.delete(EmployeeView.inputForID())) {
                         System.out.println("Delete succeed");
                     } else {
@@ -85,7 +85,7 @@ public class EmployeeManagementController {
                     }
                     break;
                 case FIND:
-                    System.out.println("Enter id customer to find");
+                    System.out.println("Enter id employee to find (NV-YYYY)");
                     int i = employeeService.isValid(EmployeeView.inputForID());
                     if (i != -1) {
                         System.out.println(employeeService.findAll().get(i));

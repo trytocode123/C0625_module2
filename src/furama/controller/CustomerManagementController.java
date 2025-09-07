@@ -70,7 +70,7 @@ public class CustomerManagementController {
                     }
                     break;
                 case DELETE:
-                    System.out.println("Enter id customer to delete");
+                    System.out.println("Enter id customer to delete (KH-YYYY)");
                     if (customerService.delete(CustomerView.inputForID())) {
                         System.out.println("Delete succeed");
                     } else {
@@ -78,13 +78,14 @@ public class CustomerManagementController {
                     }
                     break;
                 case FIND:
-                    System.out.println("Enter id customer to find");
+                    System.out.println("Enter id customer to find (KH-YYYY)");
                     int i = customerService.isValid(CustomerView.inputForID());
                     if (i != -1) {
                         System.out.println(customerService.findAll().get(i));
                     } else {
                         System.err.println("Not found");
                     }
+                    break;
                 case RETURN:
                     flag = false;
                 default:
