@@ -133,7 +133,6 @@ public class CustomerView {
         System.out.println("Enter email");
         String email = sc.nextLine();
         String type = null;
-        int option = Integer.parseInt(sc.nextLine());
         final int DIAMOND = 1;
         final int PLATINUM = 2;
         final int GOLD = 3;
@@ -142,30 +141,28 @@ public class CustomerView {
         boolean flagType = true;
         while (flagType) {
             System.out.println("Enter type customer\n1 Diamond\n2 Platinum\n3 Gold\n4 Silver\n5 Member");
+            int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DIAMOND:
                     type = "Diamond";
-                    flagType = false;
                     break;
                 case PLATINUM:
                     type = "Platinum";
-                    flagType = false;
                     break;
                 case GOLD:
                     type = "Gold";
-                    flagType = false;
                     break;
                 case SILVER:
                     type = "Silver";
-                    flagType = false;
                     break;
                 case MEMBER:
                     type = "Member";
-                    flagType = false;
                     break;
                 default:
                     System.err.println("Not valid, enter again");
+                    continue;
             }
+            flagType = false;
         }
 
         System.out.println("Enter address");
@@ -198,24 +195,25 @@ public class CustomerView {
             }
         }
 
-        int optionGender = Integer.parseInt(sc.nextLine());
         boolean gender = false;
         final int MALE = 1;
         final int FEMALE = 2;
         boolean flagOptionGender = true;
         while (flagOptionGender) {
             System.out.println("Enter gender\n1 Male\n2 Female");
+            int optionGender = Integer.parseInt(sc.nextLine());
             switch (optionGender) {
                 case MALE:
                     gender = true;
-                    flagOptionGender = false;
                     break;
                 case FEMALE:
-                    flagOptionGender = false;
+
                     break;
                 default:
                     System.err.println("Select gender again");
+                    continue;
             }
+            flagOptionGender = false;
         }
         String identify = identify();
         String phoneNumber = phoneNumber();
@@ -223,7 +221,6 @@ public class CustomerView {
         String email = sc.nextLine();
 
         String type = null;
-        int option = Integer.parseInt(sc.nextLine());
         final int DIAMOND = 1;
         final int PLATINUM = 2;
         final int GOLD = 3;
@@ -232,30 +229,28 @@ public class CustomerView {
         boolean flagType = true;
         while (flagType) {
             System.out.println("Enter type customer\n1 Diamond\n2 Platinum\n3 Gold\n4 Silver\n5 Member");
+            int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case DIAMOND:
                     type = "Diamond";
-                    flagType = false;
                     break;
                 case PLATINUM:
                     type = "Platinum";
-                    flagType = false;
                     break;
                 case GOLD:
                     type = "Gold";
-                    flagType = false;
                     break;
                 case SILVER:
                     type = "Silver";
-                    flagType = false;
                     break;
                 case MEMBER:
                     type = "Member";
-                    flagType = false;
                     break;
                 default:
                     System.err.println("Not valid, enter again");
+                    continue;
             }
+            flagType = false;
         }
         System.out.println("Enter address");
         String address = sc.nextLine();

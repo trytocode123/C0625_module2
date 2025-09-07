@@ -66,13 +66,13 @@ public class EmployeeView {
             }
         }
 
-        int optionGender = Integer.parseInt(sc.nextLine());
         boolean gender = false;
         final int MALE = 1;
         final int FEMALE = 2;
         boolean flagOptionGender = true;
         while (flagOptionGender) {
             System.out.println("Enter gender\n1 Male\n2 Female");
+            int optionGender = Integer.parseInt(sc.nextLine());
             switch (optionGender) {
                 case MALE:
                     gender = true;
@@ -112,7 +112,6 @@ public class EmployeeView {
         String email = sc.nextLine();
 
         String level = null;
-        int option = Integer.parseInt(sc.nextLine());
         final int TRUNG_CAP = 1;
         final int CAO_DANG = 2;
         final int DAI_HOC = 3;
@@ -120,29 +119,64 @@ public class EmployeeView {
         boolean flagType = true;
         while (flagType) {
             System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
+            int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case TRUNG_CAP:
                     level = "Trung cấp";
-                    flagType = false;
                     break;
                 case CAO_DANG:
                     level = "Cao đẳng";
-                    flagType = false;
                     break;
                 case DAI_HOC:
                     level = "Đại học";
-                    flagType = false;
                     break;
                 case SAU_DAI_HOC:
                     level = "Sau đại học";
-                    flagType = false;
                     break;
                 default:
                     System.err.println("Not valid, enter again");
+                    continue;
             }
+            flagType = false;
         }
-        System.out.println("Enter position");
-        String position = sc.nextLine();
+        String position = null;
+        boolean flagPos = true;
+
+        final int LE_TAN = 1;
+        final int PHUC_VU = 2;
+        final int CHUYEN_VIEN = 3;
+        final int GIAM_SAT = 4;
+        final int QUAN_LY = 5;
+        final int GIAM_DOC = 6;
+        while (flagPos) {
+            System.out.println("Enter the position\n1 Lễ tân\n2 Phục vụ\n3 Chuyên viên\n4 Giám sát\n5 Quản lý\n6 Giám đốc");
+            int pos = Integer.parseInt(sc.nextLine());
+            switch (pos) {
+                case LE_TAN:
+                    position = "Lễ tân";
+                    break;
+                case PHUC_VU:
+                    position = "Phục vụ";
+                    break;
+                case CHUYEN_VIEN:
+                    position = "Chuyên viên";
+                    break;
+                case GIAM_SAT:
+                    position = "Giám sát";
+                    break;
+                case QUAN_LY:
+                    position = "Quản lý";
+                    break;
+                case GIAM_DOC:
+                    position = "Giám đốc";
+                    break;
+                default:
+                    System.err.println("Select again");
+                    continue;
+            }
+            flagPos = false;
+        }
+
         System.out.println("Enter salary");
         int salary = Integer.parseInt(sc.nextLine());
         return new Employee(iD, fullName, DOB, gender, identify, phoneNumber, email, level, position, salary);
@@ -181,13 +215,14 @@ public class EmployeeView {
                 System.err.println(e.getMessage() + " dd/MM/yyyy");
             }
         }
-        System.out.println("Enter gender\n1 Male\n2 Female");
-        int optionGender = Integer.parseInt(sc.nextLine());
+
         boolean gender = false;
         final int MALE = 1;
         final int FEMALE = 2;
         boolean flagOptionGender = true;
         while (flagOptionGender) {
+            System.out.println("Enter gender\n1 Male\n2 Female");
+            int optionGender = Integer.parseInt(sc.nextLine());
             switch (optionGender) {
                 case MALE:
                     gender = true;
@@ -226,35 +261,33 @@ public class EmployeeView {
 
         System.out.println("Enter email");
         String email = sc.nextLine();
-        System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
         String level = null;
-        int option = Integer.parseInt(sc.nextLine());
         final int TRUNG_CAP = 1;
         final int CAO_DANG = 2;
         final int DAI_HOC = 3;
         final int SAU_DAI_HOC = 4;
         boolean flagType = true;
         while (flagType) {
+            System.out.println("Enter the level\n1 Trung cấp\n2 Cao đẳng\n3 Đại học\n4 Sau đại học");
+            int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case TRUNG_CAP:
                     level = "Trung cấp";
-                    flagType = false;
                     break;
                 case CAO_DANG:
                     level = "Cao đẳng";
-                    flagType = false;
                     break;
                 case DAI_HOC:
                     level = "Đại học";
-                    flagType = false;
                     break;
                 case SAU_DAI_HOC:
                     level = "Sau đại học";
-                    flagType = false;
                     break;
                 default:
                     System.err.println("Not valid, enter again");
+                    continue;
             }
+            flagType = false;
         }
         System.out.println("Enter position");
         String position = sc.nextLine();
